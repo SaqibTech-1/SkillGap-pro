@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Testimonials — SkillGap Pro | Real Stories from Real Learners</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="icon" href="./assets/logo/SkillGap favicon.png" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" />
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ============ LOADER ============ -->
+<div id="loader">
+  <div class="loader-logo">
+    <img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:200px;height: auto;">
+  </div>
+  <div class="loader-bar"></div>
+</div>
+
+<!-- ============ TOAST WRAPPER ============ -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand brand-logo" href="index.html">
+      <!-- <span class="brand-mark"><i class="bi bi-graph-up-arrow"></i></span>
+      SkillGap <span class="brand-gradient ms-1">Pro</span> -->
+          <img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:180px;height: auto;">
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <i class="bi bi-list fs-3"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link " href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="how-it-works.html">How It Works</a></li>
+        <li class="nav-item"><a class="nav-link " href="analyze.html">Analyze Skills</a></li>
+        <li class="nav-item"><a class="nav-link " href="testimonials.html">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link " href="team.html">Team</a></li>
+        <li class="nav-item"><a class="nav-link " href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link " href="profile.html">Profile</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"><i class="bi bi-moon-stars"></i></button>
+        <div id="authButtons" class="d-flex gap-2">
+          <button class="btn-ghost" onclick="openAuth('login')">Login</button>
+          <button class="btn-grad" onclick="openAuth('signup')">Sign Up</button>
+        </div>
+        <div id="userButtons" class="d-none align-items-center gap-2">
+          <span class="d-none d-md-inline text-muted-2 small">Hi, <strong id="userName">User</strong></span>
+          <button class="btn-ghost" onclick="logout()"><i class="bi bi-box-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ TESTIMONIALS HERO ============ -->
+<section class="page-hero">
+  <div class="shape s1"></div>
+  <div class="shape s2"></div>
+  <div class="container position-relative">
+    <div data-aos="fade-up">
+      <span class="badge-soft mb-3"><i class="bi bi-chat-heart"></i> Success Stories</span>
+      <h1 class="hero-title">Real People. <span class="brand-gradient">Real Transformations.</span></h1>
+      <p class="lead mx-auto" style="max-width:720px;color:var(--muted);">From college students landing their first internships to professionals switching careers — hear directly from the 25,000+ learners who used SkillGap Pro to change their career trajectory.</p>
+      <div class="d-flex flex-wrap gap-4 justify-content-center mt-4">
+        <div class="text-center"><strong style="font-family:'Space Grotesk';font-size:1.5rem;">4.9/5</strong><div class="text-muted-2 small">Average Rating</div></div>
+        <div class="text-center"><strong style="font-family:'Space Grotesk';font-size:1.5rem;">2,400+</strong><div class="text-muted-2 small">5-Star Reviews</div></div>
+        <div class="text-center"><strong style="font-family:'Space Grotesk';font-size:1.5rem;">62%</strong><div class="text-muted-2 small">Got Jobs in 90 Days</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STUDENT SUCCESS STORIES ============ -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="badge-soft mb-3"><i class="bi bi-mortarboard"></i> Student Success Stories</span>
+      <h2 class="section-title">How <span class="brand-gradient">Students</span> Landed Their Dream Internships</h2>
+      <p class="section-sub">Real stories from college students who used SkillGap Pro to identify their skill gaps and secure top internships before graduation.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p class="text-muted-2">"I was a 3rd year CS student with no idea what companies actually wanted. SkillGap Pro told me I was missing Git, React and deployment skills. I spent 6 weeks on those, and landed an internship at a funded startup in Bangalore."</p>
+          <div class="who"><img src="https://i.pravatar.cc/100?img=12" alt=""><div><strong>Aarav Mehta</strong><div class="small text-muted-2">B.Tech CSE, 3rd Year · Now Frontend Intern at Razorpay</div></div></div>
+          <div class="mt-3"><span class="skill-chip chip-strong">Match: 72%</span><span class="skill-chip chip-improve">6 weeks</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p class="text-muted-2">"My college didn't teach Tableau or Power BI. I thought I wasn't cut out for Data Analyst roles. SkillGap Pro showed me I already had 60% of the skills. The PDF report helped me convince my parents to fund a 2-month Tableau course. Now I have 3 job offers."</p>
+          <div class="who"><img src="https://i.pravatar.cc/100?img=47" alt=""><div><strong>Sneha Kapoor</strong><div class="small text-muted-2">B.Com Graduate · Now Data Analyst at TCS</div></div></div>
+          <div class="mt-3"><span class="skill-chip chip-strong">Match: 65%</span><span class="skill-chip chip-improve">2 months</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p class="text-muted-2">"I analyzed my skills against 4 different roles. Found out I was 80% ready for Digital Marketing but only 30% for Data Science. That clarity alone saved me 6 months of wasted effort on the wrong path."</p>
+          <div class="who"><img src="https://i.pravatar.cc/100?img=33" alt=""><div><strong>Rahul Verma</strong><div class="small text-muted-2">MBA 2nd Year · Digital Marketing Intern</div></div></div>
+          <div class="mt-3"><span class="skill-chip chip-strong">Match: 80%</span><span class="skill-chip chip-improve">3 weeks</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p class="text-muted-2">"The recommendations section is gold. Instead of vague advice like 'learn coding', it said 'Build 3 React projects and master Git workflows'. Specific, actionable, doable. I followed it religiously."</p>
+          <div class="who"><img src="https://i.pravatar.cc/100?img=15" alt=""><div><strong>Priya Nair</strong><div class="small text-muted-2">BCA Final Year · Full Stack Developer</div></div></div>
+          <div class="mt-3"><span class="skill-chip chip-strong">Match: 58%</span><span class="skill-chip chip-improve">4 months</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p class="text-muted-2">"I'm from a tier-3 college with no placement cell. SkillGap Pro gave me the same career clarity that IIT students get from their placement officers. It's genuinely democratizing career guidance."</p>
+          <div class="who"><img src="https://i.pravatar.cc/100?img=52" alt=""><div><strong>Vikram Singh</strong><div class="small text-muted-2">B.Tech ECE · Backend Developer at Infosys</div></div></div>
+          <div class="mt-3"><span class="skill-chip chip-strong">Match: 70%</span><span class="skill-chip chip-improve">5 months</span></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p class="text-muted-2">"The history feature is amazing. I re-analyzed every month and watched my score go from 35% to 78% in 4 months. That visual progress kept me motivated through the tough learning days."</p>
+          <div class="who"><img src="https://i.pravatar.cc/100?img=44" alt=""><div><strong>Ananya Reddy</strong><div class="small text-muted-2">B.Des Student · UI/UX Designer at Flipkart</div></div></div>
+          <div class="mt-3"><span class="skill-chip chip-strong">Match: 78%</span><span class="skill-chip chip-improve">4 months</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JOB SEEKER TRANSFORMATIONS ============ -->
+<section class="section" style="background:var(--brand-grad-soft);">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="badge-soft mb-3"><i class="bi bi-arrow-left-right"></i> Career Transformations</span>
+      <h2 class="section-title">Before & After: <span class="brand-gradient">Career Switchers</span></h2>
+      <p class="section-sub">Professionals who used SkillGap Pro to pivot into new industries. Their journeys prove it's never too late to reinvent yourself.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="fade-right">
+        <div class="glass-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img src="https://i.pravatar.cc/100?img=68" style="width:60px;height:60px;border-radius:50%;object-fit:cover;" alt="">
+            <div><h5 class="mb-0">Rohit Singh</h5><div class="small text-muted-2">Teacher → Junior UX Designer</div></div>
+          </div>
+          <div class="row g-2 mb-3">
+            <div class="col-6"><div style="background:rgba(255,92,138,.1);border-radius:10px;padding:14px;text-align:center;"><div class="small text-muted-2">Before</div><strong style="color:#c63460;">0% UX Skills</strong><div class="small text-muted-2">12 years in teaching</div></div></div>
+            <div class="col-6"><div style="background:rgba(43,212,168,.12);border-radius:10px;padding:14px;text-align:center;"><div class="small text-muted-2">After 8 Months</div><strong style="color:#0a8c6a;">72% Match</strong><div class="small text-muted-2">2x previous salary</div></div></div>
+          </div>
+          <p class="text-muted-2 small mb-0">"I was stuck in a teaching career I'd outgrown. SkillGap Pro showed me my transferable skills (user research, empathy, communication) mapped perfectly to UX. The roadmap gave me confidence to make the leap. 8 months later, I'm designing products used by millions."</p>
+        </div>
+      </div>
+      <div class="col-md-6" data-aos="fade-left">
+        <div class="glass-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img src="https://i.pravatar.cc/100?img=26" style="width:60px;height:60px;border-radius:50%;object-fit:cover;" alt="">
+            <div><h5 class="mb-0">Kavitha Rao</h5><div class="small text-muted-2">Accountant → Cybersecurity Analyst</div></div>
+          </div>
+          <div class="row g-2 mb-3">
+            <div class="col-6"><div style="background:rgba(255,92,138,.1);border-radius:10px;padding:14px;text-align:center;"><div class="small text-muted-2">Before</div><strong style="color:#c63460;">25% Match</strong><div class="small text-muted-2">6 years in finance</div></div></div>
+            <div class="col-6"><div style="background:rgba(43,212,168,.12);border-radius:10px;padding:14px;text-align:center;"><div class="small text-muted-2">After 14 Months</div><strong style="color:#0a8c6a;">81% Match</strong><div class="small text-muted-2">3x salary growth</div></div></div>
+          </div>
+          <p class="text-muted-2 small mb-0">"My finance background actually helped — risk assessment and compliance are huge in cybersecurity. SkillGap Pro helped me see the overlap and gave me a clear path to learn the technical skills. Today I protect enterprise systems and earn triple my accounting salary."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEO / MEDIA GRID ============ -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="badge-soft mb-3"><i class="bi bi-play-circle"></i> Video Stories</span>
+      <h2 class="section-title">Watch Their <span class="brand-gradient">Journeys</span></h2>
+      <p class="section-sub">Real conversations with learners who transformed their careers using SkillGap Pro.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in">
+        <div class="glass-card p-0 overflow-hidden">
+          <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#5b3df5,#2bd4a8);display:grid;place-items:center;position:relative;">
+            <i class="bi bi-play-circle-fill text-white" style="font-size:4rem;opacity:.9;"></i>
+            <span style="position:absolute;bottom:12px;left:14px;background:rgba(0,0,0,.6);color:#fff;padding:4px 10px;border-radius:6px;font-size:.75rem;">4:32</span>
+          </div>
+          <div class="p-3">
+            <h6 class="mb-1">From College to Campus Placement</h6>
+            <p class="text-muted-2 small mb-0">How Priya used SkillGap Pro to crack her TCS interview in 90 days.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="glass-card p-0 overflow-hidden">
+          <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#ff7ab6,#ff5c8a);display:grid;place-items:center;position:relative;">
+            <i class="bi bi-play-circle-fill text-white" style="font-size:4rem;opacity:.9;"></i>
+            <span style="position:absolute;bottom:12px;left:14px;background:rgba(0,0,0,.6);color:#fff;padding:4px 10px;border-radius:6px;font-size:.75rem;">6:15</span>
+          </div>
+          <div class="p-3">
+            <h6 class="mb-1">Switching Careers at 32</h6>
+            <p class="text-muted-2 small mb-0">Rohit's journey from teaching to UX design — and why age doesn't matter.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="glass-card p-0 overflow-hidden">
+          <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#ffb547,#ff7e5f);display:grid;place-items:center;position:relative;">
+            <i class="bi bi-play-circle-fill text-white" style="font-size:4rem;opacity:.9;"></i>
+            <span style="position:absolute;bottom:12px;left:14px;background:rgba(0,0,0,.6);color:#fff;padding:4px 10px;border-radius:6px;font-size:.75rem;">3:48</span>
+          </div>
+          <div class="p-3">
+            <h6 class="mb-1">Tier-3 College to Top Startup</h6>
+            <p class="text-muted-2 small mb-0">Vikram's story of beating the college-brand barrier with skill clarity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMUNITY TRUST ============ -->
+<section class="section-sm">
+  <div class="container">
+    <div class="stats-bar" data-aos="zoom-in">
+      <div class="row g-4 position-relative" style="z-index:2;">
+        <div class="col-6 col-md-3 text-center stat"><strong>4.9/5</strong><span>App Store Rating</span></div>
+        <div class="col-6 col-md-3 text-center stat"><strong>2,400+</strong><span>5-Star Reviews</span></div>
+        <div class="col-6 col-md-3 text-center stat"><strong>62%</strong><span>Jobs in 90 Days</span></div>
+        <div class="col-6 col-md-3 text-center stat"><strong>96%</strong><span>Would Recommend</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section-sm">
+  <div class="container">
+    <div class="newsletter" data-aos="zoom-in">
+      <h2 class="mb-2" style="position:relative;z-index:2;">Ready to Write Your Own Success Story?</h2>
+      <p class="mb-4 opacity-75" style="position:relative;z-index:2;">Join 25,000+ learners. Free forever. Takes 60 seconds.</p>
+      <a href="analyze.html" class="btn btn-light btn-lg" style="border-radius:11px;font-weight:600;position:relative;z-index:2;">Start Free Analysis <i class="bi bi-arrow-right ms-2"></i></a>
+    </div>
+  </div>
+</section>
+
+ <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <h4 class="mb-0 text-white"><img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:180px;height: auto;"></h4>
+          </div>
+          <p class="small">An AI-inspired skill gap analysis platform built to help students and job seekers become
+            truly job-ready by identifying what to learn next.</p>
+          <div class="socials mt-3"><a href="#"><i class="bi bi-facebook"></i></a><a href="#"><i
+                class="bi bi-twitter-x"></i></a><a href="#"><i class="bi bi-linkedin"></i></a><a href="#"><i
+                class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-github"></i></a></div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Product</h6><a href="index.html">Home</a><a href="about.html">About</a><a href="how-it-works.html">How It
+            Works</a><a href="analyze.html">Analyze</a><a href="profile.html">Profile</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Company</h6><a href="team.html">Team</a><a href="testimonials.html">Testimonials</a><a
+            href="contact.html">Contact</a><a href="#">Careers</a><a href="#">Press</a>
+        </div>
+        <div class="col-lg-4">
+          <h6>Stay Updated</h6>
+          <p class="small">Subscribe to receive new career templates and platform updates every week.</p>
+          <form class="d-flex gap-2" onsubmit="event.preventDefault();showToast('Subscribed!','success');this.reset();">
+            <input type="email" placeholder="your@email.com" class="form-control" required>
+            <button class="btn-grad" type="submit"><i class="bi bi-send"></i></button>
+          </form>
+        </div>
+      </div>
+      <hr style="border-color:rgba(255,255,255,.1);margin:40px 0 20px;">
+      <div class="d-flex flex-wrap justify-content-center gap-2 small">
+        <div>© <span id="year"></span> SkillGap Pro. All rights reserved. Made By Muhammad Saqib.</div>
+        <!-- <div><a href="#" class="d-inline">Privacy</a> · <a href="#" class="d-inline">Terms</a> · <a href="#"
+            class="d-inline">Cookies</a></div> -->
+      </div>
+    </div>
+ </footer>
+<button id="backTop" title="Back to top"><i class="bi bi-arrow-up"></i></button>
+<div class="modal fade" id="authModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content p-4"><div class="text-center mb-3"><span class="brand-mark mx-auto mb-2"><i class="bi bi-graph-up-arrow"></i></span><h4 class="mb-0">Welcome to SkillGap <span class="brand-gradient">Pro</span></h4></div><div class="auth-tabs"><button id="tabLogin" class="active" onclick="switchAuth('login')">Login</button><button id="tabSignup" onclick="switchAuth('signup')">Sign Up</button></div><form id="loginForm" class="d-block"><div class="mb-3"><label class="form-label small fw-semibold">Email</label><input type="email" class="form-control" id="loginEmail" required></div><div class="mb-3"><label class="form-label small fw-semibold">Password</label><input type="password" class="form-control" id="loginPass" required></div><button type="submit" class="btn-grad w-100 py-2 mt-2">Login</button></form><form id="signupForm" class="d-none"><div class="mb-3"><label class="form-label small fw-semibold">Full Name</label><input type="text" class="form-control" id="suName" required></div><div class="mb-3"><label class="form-label small fw-semibold">Email</label><input type="email" class="form-control" id="suEmail" required></div><div class="row g-2"><div class="col-6 mb-3"><label class="form-label small fw-semibold">Password</label><input type="password" class="form-control" id="suPass" required></div><div class="col-6 mb-3"><label class="form-label small fw-semibold">Confirm</label><input type="password" class="form-control" id="suPass2" required></div></div><div class="mb-3"><label class="form-label small fw-semibold">I am a...</label><select id="suRole" class="form-select" required><option value="">-- Select --</option><option>Student</option><option>Job Seeker</option><option>Fresher</option><option>Professional</option></select></div><button type="submit" class="btn-grad w-100 py-2 mt-2">Create Account</button></form></div></div></div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

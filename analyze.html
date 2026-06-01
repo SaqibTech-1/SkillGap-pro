@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analyze Skills — SkillGap Pro | Your Career Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="./assets/logo/SkillGap favicon.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- ============ LOADER ============ -->
+  <div id="loader">
+    <div class="loader-logo">
+      <img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:200px;height: auto;">
+    </div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- ============ TOAST WRAPPER ============ -->
+  <div class="toast-wrap" id="toastWrap"></div>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand brand-logo" href="index.html">
+        <!-- <span class="brand-mark"><i class="bi bi-graph-up-arrow"></i></span>
+      SkillGap <span class="brand-gradient ms-1">Pro</span> -->
+        <img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:180px;height: auto;">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <i class="bi bi-list fs-3"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="analyze.html">Analyze Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <button class="theme-toggle" id="themeToggle" title="Toggle theme"><i class="bi bi-moon-stars"></i></button>
+          <div id="authButtons" class="d-flex gap-2">
+            <button class="btn-ghost" onclick="openAuth('login')">Login</button>
+            <button class="btn-grad" onclick="openAuth('signup')">Sign Up</button>
+          </div>
+          <div id="userButtons" class="d-none align-items-center gap-2">
+            <span class="d-none d-md-inline text-muted-2 small">Hi, <strong id="userName">User</strong></span>
+            <button class="btn-ghost" onclick="logout()"><i class="bi bi-box-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ ANALYZE HERO ============ -->
+  <section class="page-hero">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="container position-relative">
+      <div data-aos="fade-up">
+        <span class="badge-soft mb-3"><i class="bi bi-bar-chart-steps"></i> Skill Analysis Engine</span>
+        <h1 class="hero-title">Discover Your <span class="brand-gradient">True Career Fit</span></h1>
+        <p class="lead mx-auto" style="max-width:720px;color:var(--muted);">In 60 seconds, know exactly where you stand,
+          what you're missing, and what to learn next. No fluff, no guesswork — just honest, data-driven career clarity.
+        </p>
+        <div class="d-flex flex-wrap gap-3 justify-content-center mt-4">
+          <a href="#analyzeForm" class="btn-grad btn-lg">Start Analysis <i class="bi bi-arrow-down ms-1"></i></a>
+          <a href="how-it-works.html" class="btn-ghost btn-lg">How It Works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ANALYZE FORM (Profession + Skills Input) ============ -->
+  <section class="section" id="analyzeForm">
+    <div class="container">
+      <div class="row g-4">
+        <!-- LEFT: Form -->
+        <div class="col-lg-5" data-aos="fade-right">
+          <div class="input-card">
+            <div class="d-flex align-items-center gap-2 mb-4">
+              <div class="feature-icon bg-grad-1" style="width:48px;height:48px;font-size:1.1rem;margin:0;"><i
+                  class="bi bi-person-vcard"></i></div>
+              <div>
+                <h4 class="mb-0">Your Details</h4><small class="text-muted-2">Takes under 60 seconds</small>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Full Name</label>
+              <input type="text" id="aName" class="form-control" placeholder="e.g. Aarav Mehta">
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Target Career Role</label>
+              <select id="aRole" class="form-select">
+                <option value="">-- Select a role --</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-semibold">Your Skills <span class="text-muted-2 fw-normal">(press Enter
+                  or comma to add)</span></label>
+              <div class="tag-input" id="tagBox"><input type="text" id="tagInput"
+                  placeholder="e.g. HTML, CSS, JavaScript..."></div>
+              <div class="small text-muted-2 mt-2"><i class="bi bi-lightbulb"></i> Tip: add at least 4-5 skills for
+                accurate matching.</div>
+            </div>
+            <button class="btn-grad w-100 py-2" onclick="runAnalysis()"><i class="bi bi-magic me-2"></i>Analyze My
+              Skills</button>
+            <button class="btn-ghost w-100 mt-2 py-2" onclick="resetForm()"><i
+                class="bi bi-arrow-counterclockwise me-2"></i>Reset</button>
+          </div>
+        </div>
+
+        <!-- RIGHT: Result Dashboard -->
+        <div class="col-lg-7" data-aos="fade-left">
+          <div id="emptyState" class="input-card text-center py-5">
+            <div class="feature-icon bg-grad-1 mx-auto" style="width:90px;height:90px;font-size:2.5rem;"><i
+                class="bi bi-bar-chart-line"></i></div>
+            <h4 class="mt-3">Your personalized dashboard appears here</h4>
+            <p class="text-muted-2">Fill the form on the left to instantly see your match score, missing skills,
+              improvement areas, and role-specific learning recommendations.</p>
+            <div class="row g-3 mt-3">
+              <div class="col-4">
+                <div class="glass-card p-3"><i class="bi bi-pie-chart-fill text-primary fs-3"></i>
+                  <div class="small text-muted-2 mt-2">Match Score</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="glass-card p-3"><i class="bi bi-check-circle-fill text-success fs-3"></i>
+                  <div class="small text-muted-2 mt-2">Strong Skills</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="glass-card p-3"><i class="bi bi-x-circle-fill text-danger fs-3"></i>
+                  <div class="small text-muted-2 mt-2">Missing Skills</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="resultBox" class="d-none">
+            <div class="row g-4 result-grid">
+              <div class="col-md-5">
+                <div class="glass-card text-center">
+                  <small class="text-muted-2 text-uppercase fw-semibold">Match Score</small>
+                  <div class="big-donut mt-3" id="bigDonut" style="--p:0;">
+                    <div class="text-center">
+                      <div class="val" id="scoreVal">0%</div>
+                      <div class="lbl" id="scoreLbl">Analyzing...</div>
+                    </div>
+                  </div>
+                  <h5 class="mt-4 mb-1" id="resRole">Role</h5>
+                  <p class="text-muted-2 small mb-0" id="resName">For You</p>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div class="glass-card">
+                  <h6 style="color:#0a8c6a;"><i class="bi bi-check-circle"></i> Strong Skills <span
+                      class="text-muted-2 fw-normal small" id="cntStrong"></span></h6>
+                  <div id="strongList"></div>
+                </div>
+                <div class="glass-card mt-3">
+                  <h6 style="color:#c63460;"><i class="bi bi-x-circle"></i> Missing Skills <span
+                      class="text-muted-2 fw-normal small" id="cntMiss"></span></h6>
+                  <div id="missList"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="glass-card">
+                  <h6 style="color:#a26a00;"><i class="bi bi-arrow-up-circle"></i> Improvement Areas</h6>
+                  <div id="imprList"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="glass-card">
+                  <h6 style="color:var(--brand-1);"><i class="bi bi-stars"></i> Recommendations</h6>
+                  <ul class="mb-0 text-muted-2 small ps-3" id="recList"></ul>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="glass-card">
+                  <h6><i class="bi bi-bar-chart-line text-primary"></i> Skill-by-Skill Breakdown</h6>
+                  <div id="barList"></div>
+                </div>
+              </div>
+              <div class="col-12 d-flex flex-wrap gap-2">
+                <button class="btn-grad" onclick="downloadReport()"><i class="bi bi-download me-2"></i>Download PDF
+                  Report</button>
+                <button class="btn-ghost" onclick="window.print()"><i class="bi bi-printer me-2"></i>Print
+                  Report</button>
+                <button class="btn-ghost" onclick="resetForm()"><i
+                    class="bi bi-arrow-repeat me-2"></i>Re-analyze</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROFESSION SELECTION CARDS ============ -->
+  <section class="section" style="background:var(--brand-grad-soft);">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge-soft mb-3"><i class="bi bi-briefcase"></i> Choose Your Path</span>
+        <h2 class="section-title">8 <span class="brand-gradient">High-Demand</span> Career Roles</h2>
+        <p class="section-sub">Click any role to auto-select it in the analysis form above. Each role includes 10
+          industry-verified skills mapped from real job postings.</p>
+      </div>
+      <div class="row g-4" id="roleCards"></div>
+    </div>
+  </section>
+
+  <!-- ============ SUGGESTED SKILLS (Dynamic) ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge-soft mb-3"><i class="bi bi-lightbulb"></i> Smart Suggestions</span>
+        <h2 class="section-title">Skills <span class="brand-gradient">You Might Have Missed</span></h2>
+        <p class="section-sub">Select a role above to see the 10 industry-verified skills required. Check off the ones
+          you already know — we'll auto-add them to your analysis.</p>
+      </div>
+      <div class="glass-card" data-aos="fade-up" style="padding:30px;">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-4">
+            <h4 id="sugRoleTitle">Select a role first</h4>
+            <p class="text-muted-2 small" id="sugRoleDesc">Choose a career role from the section above to see the
+              required skills for that role.</p>
+            <button class="btn-grad mt-3"
+              onclick="document.getElementById('analyzeForm').scrollIntoView({behavior:'smooth'})">Go to Analysis <i
+                class="bi bi-arrow-up ms-1"></i></button>
+          </div>
+          <div class="col-lg-8">
+            <div id="sugSkillsList" class="d-flex flex-wrap gap-2">
+              <span class="text-muted-2 small">Skills will appear here after you select a role.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEARNING RESOURCES ============ -->
+  <section class="section" style="background:var(--brand-grad-soft);">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge-soft mb-3"><i class="bi bi-book"></i> Learning Resources</span>
+        <h2 class="section-title">Curated <span class="brand-gradient">Learning Paths</span></h2>
+        <p class="section-sub">Once you know your gaps, here are the best free and paid resources to close them. Updated
+          monthly by our career coaching team.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="resource-card">
+            <span class="level lvl-beginner">Beginner</span>
+            <h5 class="mt-2 mb-2">freeCodeCamp</h5>
+            <p class="text-muted-2 small mb-3">Completely free, project-based learning for web development, Python, data
+              analysis and more. 1000+ hours of content.</p>
+            <div class="d-flex gap-2 flex-wrap mb-3"><span class="skill-chip chip-strong">HTML/CSS</span><span
+                class="skill-chip chip-strong ">JS</span><span class="skill-chip chip-strong">Python</span></div>
+            <a href="https://freecodecamp.org" target="_blank" class="btn-ghost w-100 mt-3">Visit Platform <i
+                class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="resource-card">
+            <span class="level lvl-beginner">Beginner</span>
+            <h5 class="mt-2 mb-2">Khan Academy</h5>
+            <p class="text-muted-2 small mb-3">World-class education in math, statistics, and computing. Perfect
+              foundation for data analyst and cybersecurity roles.</p>
+            <div class="d-flex gap-2 flex-wrap mb-3"><span class="skill-chip chip-strong">Math</span><span
+                class="skill-chip chip-strong">Statistics</span><span class="skill-chip chip-strong">Logic</span></div>
+            <a href="https://khanacademy.org" target="_blank" class="btn-ghost w-100 mt-3">Visit Platform <i
+                class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="resource-card">
+            <span class="level lvl-inter">Intermediate</span>
+            <h5 class="mt-2 mb-2">Coursera</h5>
+            <p class="text-muted-2 small mb-3">University-backed courses from Stanford, Google, IBM. Financial aid
+              available. Industry-recognized certificates.</p>
+            <div class="d-flex gap-2 flex-wrap mb-3"><span class="skill-chip chip-improve">Data Science</span><span
+                class="skill-chip chip-improve">UX</span><span class="skill-chip chip-improve">Marketing</span></div>
+            <a href="https://coursera.org" target="_blank" class="btn-ghost w-100 mt-3">Visit Platform <i
+                class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="resource-card">
+            <span class="level lvl-inter">Intermediate</span>
+            <h5 class="mt-2 mb-2">Udemy</h5>
+            <p class="text-muted-2 small mb-3">Affordable courses starting at ₹499. Huge variety of tech, design and
+              marketing courses. Look for 4.5+ rated ones.</p>
+            <div class="d-flex gap-2 flex-wrap mb-3"><span class="skill-chip chip-improve">React</span><span
+                class="skill-chip chip-improve">Node.js</span><span class="skill-chip chip-improve">Figma</span></div>
+            <a href="https://udemy.com" target="_blank" class="btn-ghost w-100 mt-3">Visit Platform <i
+                class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="resource-card">
+            <span class="level lvl-advanced">Advanced</span>
+            <h5 class="mt-2 mb-2">TryHackMe</h5>
+            <p class="text-muted-2 small mb-3">Hands-on cybersecurity labs. Practice ethical hacking, penetration
+              testing and SIEM in a safe browser environment.</p>
+            <div class="d-flex gap-2 flex-wrap mb-3"><span class="skill-chip chip-miss">Pentesting</span><span
+                class="skill-chip chip-miss">Linux</span><span class="skill-chip chip-miss">Networks</span></div>
+            <a href="https://tryhackme.com" target="_blank" class="btn-ghost w-100 mt-3">Visit Platform <i
+                class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="resource-card">
+            <span class="level lvl-advanced">Advanced</span>
+            <h5 class="mt-2 mb-2">LeetCode / HackerRank</h5>
+            <p class="text-muted-2 small mb-3">Sharpen your DSA skills with 2000+ coding problems. Essential for FAANG
+              and top startup interviews.</p>
+            <div class="d-flex gap-2 flex-wrap mb-3"><span class="skill-chip chip-miss">DSA</span><span
+                class="skill-chip chip-miss">Algorithms</span><span class="skill-chip chip-miss">Interviews</span></div>
+            <a href="https://leetcode.com" target="_blank" class="btn-ghost w-100 mt-3">Visit Platform <i
+                class="bi bi-box-arrow-up-right ms-1"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ANALYSIS HISTORY ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <div>
+          <span class="badge-soft mb-2"><i class="bi bi-clock-history"></i> Your History</span>
+          <h3 class="mb-0">Previous Analyses</h3>
+        </div>
+        <button class="btn-ghost" onclick="clearHistory()"><i class="bi bi-trash me-1"></i> Clear All</button>
+      </div>
+      <div id="historyList"></div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="newsletter" data-aos="zoom-in">
+        <h2 class="mb-2" style="position:relative;z-index:2;">Ready to Become Job Ready?</h2>
+        <p class="mb-4 opacity-75" style="position:relative;z-index:2;">Join 25,000+ learners closing their skill gaps
+          every week. Free forever.</p>
+        <a href="#analyzeForm" class="btn btn-light btn-lg"
+          style="border-radius:11px;font-weight:600;position:relative;z-index:2;">Start Analyzing <i
+            class="bi bi-arrow-up ms-2"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <h4 class="mb-0 text-white"><img src="./assets/logo/SkillGap_Logo.png" alt="Logo"
+                style="width:180px;height: auto;"></h4>
+          </div>
+          <p class="small">An AI-inspired skill gap analysis platform built to help students and job seekers become
+            truly job-ready by identifying what to learn next.</p>
+          <div class="socials mt-3"><a href="#"><i class="bi bi-facebook"></i></a><a href="#"><i
+                class="bi bi-twitter-x"></i></a><a href="#"><i class="bi bi-linkedin"></i></a><a href="#"><i
+                class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-github"></i></a></div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Product</h6><a href="index.html">Home</a><a href="about.html">About</a><a href="how-it-works.html">How It
+            Works</a><a href="analyze.html">Analyze</a><a href="profile.html">Profile</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Company</h6><a href="team.html">Team</a><a href="testimonials.html">Testimonials</a><a
+            href="contact.html">Contact</a><a href="#">Careers</a><a href="#">Press</a>
+        </div>
+        <div class="col-lg-4">
+          <h6>Stay Updated</h6>
+          <p class="small">Subscribe to receive new career templates and platform updates every week.</p>
+          <form class="d-flex gap-2" onsubmit="event.preventDefault();showToast('Subscribed!','success');this.reset();">
+            <input type="email" placeholder="your@email.com" class="form-control" required>
+            <button class="btn-grad" type="submit"><i class="bi bi-send"></i></button>
+          </form>
+        </div>
+      </div>
+      <hr style="border-color:rgba(255,255,255,.1);margin:40px 0 20px;">
+      <div class="d-flex flex-wrap justify-content-center gap-2 small">
+        <div>© <span id="year"></span> SkillGap Pro. All rights reserved. Made By Muhammad Saqib.</div>
+        <!-- <div><a href="#" class="d-inline">Privacy</a> · <a href="#" class="d-inline">Terms</a> · <a href="#"
+            class="d-inline">Cookies</a></div> -->
+      </div>
+    </div>
+  </footer>
+
+  <!-- Hidden report template -->
+  <div id="reportTemplate" style="position:fixed;left:-99999px;top:0;width:880px;"></div>
+
+  <button id="backTop" title="Back to top"><i class="bi bi-arrow-up"></i></button>
+  <div class="modal fade" id="authModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4">
+        <div class="text-center mb-3"><span class="brand-mark mx-auto mb-2"><i class="bi bi-graph-up-arrow"></i></span>
+          <h4 class="mb-0">Welcome to SkillGap <span class="brand-gradient">Pro</span></h4>
+          <p class="text-muted-2 small mb-0">Login to save your analysis history</p>
+        </div>
+        <div class="auth-tabs"><button id="tabLogin" class="active" onclick="switchAuth('login')">Login</button><button
+            id="tabSignup" onclick="switchAuth('signup')">Sign Up</button></div>
+        <form id="loginForm" class="d-block">
+          <div class="mb-3"><label class="form-label small fw-semibold">Email</label><input type="email"
+              class="form-control" id="loginEmail" required></div>
+          <div class="mb-3"><label class="form-label small fw-semibold">Password</label><input type="password"
+              class="form-control" id="loginPass" required></div><button type="submit"
+            class="btn-grad w-100 py-2 mt-2">Login</button>
+        </form>
+        <form id="signupForm" class="d-none">
+          <div class="mb-3"><label class="form-label small fw-semibold">Full Name</label><input type="text"
+              class="form-control" id="suName" required></div>
+          <div class="mb-3"><label class="form-label small fw-semibold">Email</label><input type="email"
+              class="form-control" id="suEmail" required></div>
+          <div class="row g-2">
+            <div class="col-6 mb-3"><label class="form-label small fw-semibold">Password</label><input type="password"
+                class="form-control" id="suPass" required></div>
+            <div class="col-6 mb-3"><label class="form-label small fw-semibold">Confirm</label><input type="password"
+                class="form-control" id="suPass2" required></div>
+          </div>
+          <div class="mb-3"><label class="form-label small fw-semibold">I am a...</label><select id="suRole"
+              class="form-select" required>
+              <option value="">-- Select --</option>
+              <option>Student</option>
+              <option>Job Seeker</option>
+              <option>Fresher</option>
+              <option>Professional</option>
+            </select></div><button type="submit" class="btn-grad w-100 py-2 mt-2">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    /* ===== ANALYZE PAGE SPECIFIC LOGIC ===== */
+
+    let skillTags = [];
+    let lastResult = null;
+
+    /* ===================== INIT ===================== */
+
+    $(document).ready(function () {
+      if (!currentUser()) {
+        setTimeout(() => {
+          openAuth('login');
+          showToast('Please login to analyze your skills', 'warning');
+        }, 1200);
+      } else {
+        populateRoles();
+        renderHistory();
+        renderRoleCards();
+      }
+    });
+
+    /* ===================== ROLE SETUP ===================== */
+
+    function populateRoles() {
+      const $s = $('#aRole');
+      $s.find('option:not(:first)').remove();
+      Object.keys(ROLES).forEach(r => $s.append(`<option>${r}</option>`));
+    }
+
+    const ROLE_ICONS = {
+      "Frontend Developer": "bi-code-slash",
+      "Backend Developer": "bi-hdd-network",
+      "Full Stack Developer": "bi-layers",
+      "Data Analyst": "bi-database",
+      "UI/UX Designer": "bi-palette",
+      "Graphic Designer": "bi-brush",
+      "Digital Marketer": "bi-megaphone",
+      "Cybersecurity Analyst": "bi-shield-lock"
+    };
+
+    const ROLE_COLORS = {
+      "Frontend Developer": "bg-grad-1",
+      "Backend Developer": "bg-grad-2",
+      "Full Stack Developer": "bg-grad-5",
+      "Data Analyst": "bg-grad-5",
+      "UI/UX Designer": "bg-grad-3",
+      "Graphic Designer": "bg-grad-4",
+      "Digital Marketer": "bg-grad-4",
+      "Cybersecurity Analyst": "bg-grad-6"
+    };
+
+    function renderRoleCards() {
+      const html = Object.keys(ROLES).map((r, i) => {
+        const req = ROLES[r];
+        const icon = ROLE_ICONS[r] || 'bi-briefcase';
+        const col = ROLE_COLORS[r] || 'bg-grad-1';
+
+        const topSkills = req.slice(0, 3)
+          .map(s => `<span class="skill-chip chip-strong">${escapeHtml(s)}</span>`)
+          .join('');
+
+        return `
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="${i * 50}">
+        <div class="role-card">
+          <div class="feature-icon ${col}">
+            <i class="bi ${icon}"></i>
+          </div>
+          <h4>${r}</h4>
+          <p class="text-muted-2 small">${req.length} required skills · Industry-verified</p>
+          <div class="mt-3">
+            ${topSkills}
+            <span class="skill-chip chip-improve">+${req.length - 3}</span>
+          </div>
+          <button class="btn-ghost w-100 mt-3" onclick="selectRole('${r}')">
+            Select Role <i class="bi bi-arrow-right ms-1"></i>
+          </button>
+        </div>
+      </div>`;
+      }).join('');
+
+      $('#roleCards').html(html);
+    }
+
+    function selectRole(role) {
+      $('#aRole').val(role);
+      $('#analyzeForm')[0].scrollIntoView({ behavior: 'smooth' });
+      updateSuggestedSkills(role);
+      showToast(`Selected: ${role}`, 'info');
+    }
+
+    $('#aRole').on('change', function () {
+      updateSuggestedSkills(this.value);
+    });
+
+    /* ===================== SKILL SYSTEM ===================== */
+
+    function normalizeSkill(s) {
+      return s.trim().toLowerCase();
+    }
+
+    function isValidSkillInput(skill) {
+      const s = normalizeSkill(skill);
+
+      if (s.length < 2) return false;
+
+      // block garbage patterns
+      if (/^(.)\1+$/.test(s)) return false;
+      if (/^\d+$/.test(s)) return false;
+
+      // 🔥 IMPORTANT: must exist in your system OR be close match
+      const allSkills = new Set(Object.values(ROLES).flat().map(normalizeSkill));
+
+      return allSkills.has(s);
+    }
+    /* 🔥 SINGLE SOURCE OF TRUTH FOR ADDING SKILLS */
+    function addSkill(raw) {
+      const v = raw.trim();
+      if (!v) return;
+
+      const exists = skillTags.some(s => normalizeSkill(s) === normalizeSkill(v));
+
+      if (!isValidSkillInput(v)) {
+        showToast(`Invalid skill: "${v}"`, 'error');
+        return;
+      }
+
+      if (!exists) {
+        skillTags.push(v);
+        renderTags();
+        updateSuggestedSkills($('#aRole').val());
+      }
+    }
+
+    /* ===================== SUGGESTED SKILLS ===================== */
+
+    function updateSuggestedSkills(role) {
+      if (!role) {
+        $('#sugRoleTitle').text('Select a role first');
+        $('#sugRoleDesc').text('Choose a career role from the section above to see required skills.');
+        $('#sugSkillsList').html('<span class="text-muted-2 small">Skills will appear here.</span>');
+        return;
+      }
+
+      $('#sugRoleTitle').text(role);
+      $('#sugRoleDesc').text(`These are ${ROLES[role].length} industry-verified skills for ${role}.`);
+
+      const html = ROLES[role].map(s => {
+        const added = skillTags.some(t => normalizeSkill(t) === normalizeSkill(s));
+
+        return `
+      <button class="skill-chip ${added ? 'chip-strong' : 'chip-improve'}"
+        onclick="toggleSugSkill(this,'${escapeHtml(s)}')">
+        <i class="bi ${added ? 'bi-check2' : 'bi-plus'}"></i>
+        ${escapeHtml(s)}
+      </button>`;
+      }).join('');
+
+      $('#sugSkillsList').html(html);
+    }
+
+    function toggleSugSkill(btn, skill) {
+      const exists = skillTags.some(s => normalizeSkill(s) === normalizeSkill(skill));
+
+      if (exists) {
+        skillTags = skillTags.filter(s => normalizeSkill(s) !== normalizeSkill(skill));
+        $(btn).removeClass('chip-strong').addClass('chip-improve')
+          .find('i').attr('class', 'bi bi-plus');
+      } else {
+        addSkill(skill); // unified pipeline
+        $(btn).removeClass('chip-improve').addClass('chip-strong')
+          .find('i').attr('class', 'bi bi-check2');
+        showToast(`Added: ${skill}`, 'success');
+      }
+
+      renderTags();
+    }
+
+    /* ===================== TAG INPUT ===================== */
+
+    function renderTags() {
+      $('#tagBox .tag-item').remove();
+
+      skillTags.forEach((t, i) => {
+        $('#tagBox').prepend(`
+      <span class="tag-item">
+        ${escapeHtml(t)}
+        <span class="x" data-i="${i}">×</span>
+      </span>`);
+      });
+    }
+
+    $(document).on('click', '#tagBox .tag-item .x', function () {
+      skillTags.splice($(this).data('i'), 1);
+      renderTags();
+      updateSuggestedSkills($('#aRole').val());
+    });
+
+    $('#tagInput').on('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ',') {
+        e.preventDefault();
+        addSkill(this.value);
+        this.value = '';
+      } else if (e.key === 'Backspace' && !this.value) {
+        skillTags.pop();
+        renderTags();
+      }
+    });
+
+    $('#tagInput').on('blur', function () {
+      addSkill(this.value);
+      this.value = '';
+    });
+
+    /* ===================== ANALYSIS ===================== */
+
+    function runAnalysis() {
+      const u = currentUser();
+      if (!u) {
+        openAuth('login');
+        return showToast('Please login first', 'warning');
+      }
+
+      const name = $('#aName').val().trim() || u.name;
+      const role = $('#aRole').val();
+
+      if (!role) return showToast('Please select a target role', 'error');
+      if (skillTags.length < 1) return showToast('Please add at least one skill', 'error');
+
+      const userSkills = skillTags.map(normalizeSkill);
+
+      const strong = ROLES[role].filter(s =>
+        userSkills.includes(normalizeSkill(s))
+      );
+
+      const improvement = ROLES[role].filter(s =>
+        !strong.includes(s) &&
+        userSkills.some(u => u.includes(normalizeSkill(s)) || normalizeSkill(s).includes(u))
+      );
+
+      const missing = ROLES[role].filter(s =>
+        !strong.includes(s) && !improvement.includes(s)
+      );
+
+      const score = Math.round(((strong.length + improvement.length * 0.5) / ROLES[role].length) * 100);
+
+      lastResult = {
+        id: 'r_' + Date.now(),
+        name,
+        role,
+        score,
+        strong,
+        missing,
+        improvement,
+        userSkills: [...skillTags],
+        recommendations: RECOMMENDATIONS[role],
+        date: new Date().toLocaleString()
+      };
+
+      renderResult(lastResult);
+      saveReport(lastResult);
+      showToast('Analysis complete!', 'success');
+    }
+
+    /* ===================== RESULT UI ===================== */
+
+    function renderResult(r) {
+      $('#emptyState').addClass('d-none');
+      $('#resultBox').removeClass('d-none');
+
+      $('#resRole').text(r.role);
+      $('#resName').text('For ' + r.name);
+      $('#scoreLbl').text(r.score >= 75 ? 'Job Ready!' : r.score >= 50 ? 'Almost There' : 'Keep Learning');
+
+      let v = 0;
+      const target = r.score;
+
+      const donut = document.getElementById('bigDonut');
+      const valEl = document.getElementById('scoreVal');
+
+      const step = () => {
+        if (v >= target) {
+          valEl.textContent = target + '%';
+          donut.style.setProperty('--p', target);
+          return;
+        }
+
+        v += Math.max(1, Math.round(target / 40));
+        if (v > target) v = target;
+
+        valEl.textContent = v + '%';
+        donut.style.setProperty('--p', v);
+
+        requestAnimationFrame(step);
+      };
+
+      step();
+
+      $('#strongList').html(r.strong.length
+        ? r.strong.map(s => `<span class="skill-chip chip-strong"><i class="bi bi-check2"></i>${escapeHtml(s)}</span>`).join('')
+        : '<small class="text-muted-2">No matched skills yet.</small>'
+      );
+
+      $('#missList').html(r.missing.length
+        ? r.missing.map(s => `<span class="skill-chip chip-miss"><i class="bi bi-x"></i>${escapeHtml(s)}</span>`).join('')
+        : '<small class="text-muted-2">None — great job!</small>'
+      );
+
+      $('#imprList').html(r.improvement.length
+        ? r.improvement.map(s => `<span class="skill-chip chip-improve"><i class="bi bi-arrow-up"></i>${escapeHtml(s)}</span>`).join('')
+        : '<small class="text-muted-2">No partial overlaps.</small>'
+      );
+
+      $('#cntStrong').text(`(${r.strong.length}/${ROLES[r.role].length})`);
+      $('#cntMiss').text(`(${r.missing.length})`);
+
+      $('#recList').html(r.recommendations.map(x => `<li>${escapeHtml(x)}</li>`).join(''));
+
+      const bars = ROLES[r.role].map(skill => {
+        let pct = 8;
+        if (r.strong.includes(skill)) pct = 100;
+        else if (r.improvement.includes(skill)) pct = 50;
+
+        return `
+      <div class="bar-skill">
+        <div class="top"><span>${escapeHtml(skill)}</span><span>${pct}%</span></div>
+        <div style="height:8px;background:rgba(0,0,0,.06);border-radius:8px;overflow:hidden;">
+          <div class="fill" style="width:0%" data-w="${pct}"></div>
+        </div>
+      </div>`;
+      }).join('');
+
+      $('#barList').html(bars);
+
+      setTimeout(() => {
+        $('#barList .fill').each(function () {
+          this.style.width = $(this).data('w') + '%';
+        });
+      }, 100);
+
+      $('#resultBox')[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    /* ===================== RESET ===================== */
+
+    function resetForm() {
+      $('#aRole').val('');
+      skillTags = [];
+      renderTags();
+      $('#emptyState').removeClass('d-none');
+      $('#resultBox').addClass('d-none');
+      lastResult = null;
+    }
+    /* ===== HISTORY ===== */
+    function getReports() { const u = currentUser(); if (!u) return []; return LS.get('sgp_reports_' + u.email, []); }
+    function saveReport(r) { const u = currentUser(); if (!u) return; const arr = getReports(); arr.unshift(r); LS.set('sgp_reports_' + u.email, arr.slice(0, 20)); renderHistory(); }
+    function deleteReport(id) { const u = currentUser(); if (!u) return; LS.set('sgp_reports_' + u.email, getReports().filter(r => r.id !== id)); renderHistory(); showToast('Report deleted', 'warning'); }
+    function loadReport(id) { const r = getReports().find(x => x.id === id); if (!r) return; lastResult = r; $('#aName').val(r.name); $('#aRole').val(r.role); skillTags = r.userSkills.slice(); renderTags(); renderResult(r); updateSuggestedSkills(r.role); $('#analyzeForm')[0].scrollIntoView({ behavior: 'smooth' }); }
+    function clearHistory() { const u = currentUser(); if (!u) return; if (!confirm('Delete all history?')) return; LS.del('sgp_reports_' + u.email); renderHistory(); showToast('History cleared', 'warning'); }
+    function renderHistory() {
+      const arr = getReports();
+      if (!arr.length) { $('#historyList').html(`<div class="text-center text-muted-2 py-5 glass-card"><i class="bi bi-inbox fs-1"></i><div class="mt-2">No previous analyses yet. Run your first analysis above!</div></div>`); return; }
+      $('#historyList').html(arr.map(r => `
+    <div class="history-item">
+      <div><div class="fw-semibold">${escapeHtml(r.role)} <span class="text-muted-2 small">· ${escapeHtml(r.date)}</span></div><div class="small text-muted-2">${r.strong.length} matched · ${r.missing.length} missing</div></div>
+      <div class="d-flex align-items-center gap-2"><span class="score">${r.score}%</span><button class="btn-ghost btn-sm" onclick="loadReport('${r.id}')"><i class="bi bi-eye"></i></button><button class="btn-ghost btn-sm" onclick="deleteReport('${r.id}')"><i class="bi bi-trash"></i></button></div>
+    </div>`).join(''));
+    }
+
+    /* ===== PDF REPORT ===== */
+    const LOGO_URL = "./assets/logo/SkillGap_Logo.png";
+
+    function buildReportHTML(r) {
+      const angle = r.score * 3.6;
+
+      return `
+  <div class="report-wrap" id="repDoc" style="
+    font-family: Arial, sans-serif;
+    background:#ffffff;
+    padding:30px;
+    color:#0f172a;
+  ">
+
+    <!-- TOP HEADER -->
+    <div style="
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px;
+      border-radius:16px;
+      background:linear-gradient(135deg,#5b3df5,#2bd4a8);
+      color:white;
+    ">
+
+      <div style="display:flex;align-items:center;gap:15px;">
+        <img src="${LOGO_URL}" style="width:120px;height:auto;background:white;padding:8px;border-radius:10px;" />
+        <div>
+          <h2 style="margin:0;font-size:20px;">SkillGap Pro Report</h2>
+          <p style="margin:0;font-size:12px;opacity:0.9;">AI Powered Skill Analysis</p>
+        </div>
+      </div>
+
+      <div style="text-align:right;font-size:12px;">
+        <div><b>Date:</b> ${r.date}</div>
+        <div><b>ID:</b> ${r.id}</div>
+      </div>
+
+    </div>
+
+    <!-- USER CARD -->
+    <div style="
+      margin-top:20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:#f8fafc;
+      padding:20px;
+      border-radius:16px;
+      border:1px solid #e2e8f0;
+    ">
+
+      <div>
+        <h2 style="margin:0;font-size:18px;">${escapeHtml(r.name)}</h2>
+        <p style="margin:4px 0;color:#64748b;">
+          Target Role: <b style="color:#5b3df5;">${escapeHtml(r.role)}</b>
+        </p>
+      </div>
+
+      <div style="
+        width:90px;
+        height:90px;
+        border-radius:50%;
+        background:conic-gradient(#5b3df5 ${angle}deg,#e2e8f0 0);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-weight:bold;
+      ">
+        ${r.score}%
+      </div>
+
+    </div>
+
+    <!-- VERDICT -->
+    <div style="
+      margin-top:15px;
+      padding:15px;
+      border-radius:12px;
+      background:#eef2ff;
+      border-left:5px solid #5b3df5;
+    ">
+      <b>Verdict:</b>
+      ${r.score >= 75
+          ? 'Job Ready – Strong alignment with role requirements.'
+          : r.score >= 50
+            ? 'Good Progress – Few gaps need attention.'
+            : 'Foundation Level – Needs structured learning plan.'}
+    </div>
+
+    <!-- GRID -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px;">
+
+      <!-- STRONG -->
+      <div style="background:#f0fdf4;padding:15px;border-radius:12px;">
+        <h3 style="color:#16a34a;margin-top:0;">✔ Strong Skills (${r.strong.length})</h3>
+        ${r.strong.length
+          ? r.strong.map(s => `<span style="display:inline-block;background:#dcfce7;color:#166534;padding:5px 10px;border-radius:8px;margin:3px;">${escapeHtml(s)}</span>`).join('')
+          : '<p style="color:#64748b;">None</p>'}
+      </div>
+
+      <!-- MISSING -->
+      <div style="background:#fef2f2;padding:15px;border-radius:12px;">
+        <h3 style="color:#dc2626;margin-top:0;">✖ Missing Skills (${r.missing.length})</h3>
+        ${r.missing.length
+          ? r.missing.map(s => `<span style="display:inline-block;background:#fee2e2;color:#991b1b;padding:5px 10px;border-radius:8px;margin:3px;">${escapeHtml(s)}</span>`).join('')
+          : '<p style="color:#64748b;">None</p>'}
+      </div>
+
+    </div>
+
+    <!-- IMPROVEMENT -->
+    <div style="
+      margin-top:20px;
+      background:#fffbeb;
+      padding:15px;
+      border-radius:12px;
+    ">
+      <h3 style="color:#a16207;">↑ Improvement Areas (${r.improvement.length})</h3>
+      ${r.improvement.length
+          ? r.improvement.map(s => `<span style="display:inline-block;background:#fef3c7;color:#92400e;padding:5px 10px;border-radius:8px;margin:3px;">${escapeHtml(s)}</span>`).join('')
+          : '<p style="color:#64748b;">No overlaps</p>'}
+    </div>
+
+    <!-- RECOMMENDATIONS -->
+    <div style="margin-top:20px;">
+      <h3 style="color:#5b3df5;">★ Recommendations</h3>
+      <ul>
+        ${r.recommendations.map(x => `<li>${escapeHtml(x)}</li>`).join('')}
+      </ul>
+    </div>
+
+    <!-- FOOTER -->
+    <div style="
+      margin-top:30px;
+      text-align:center;
+      font-size:11px;
+      color:#94a3b8;
+    ">
+      Generated by SkillGap Pro • Professional AI Skill Intelligence Report
+    </div>
+
+  </div>`;
+    }
+    async function downloadReport() {
+      if (!lastResult) return showToast('Please run an analysis first', 'error');
+      showToast('Generating your PDF report...', 'info');
+      document.getElementById('reportTemplate').innerHTML = buildReportHTML(lastResult);
+      const node = document.getElementById('repDoc');
+      try {
+        const canvas = await html2canvas(node, { scale: 2, backgroundColor: '#ffffff', useCORS: true });
+        const img = canvas.toDataURL('image/png');
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        const pageW = pdf.internal.pageSize.getWidth();
+        const pageH = pdf.internal.pageSize.getHeight();
+        const imgW = pageW;
+        const imgH = canvas.height * imgW / canvas.width;
+        let h = imgH, pos = 0;
+        pdf.addImage(img, 'PNG', 0, pos, imgW, imgH);
+        h -= pageH;
+        while (h > 0) { pos = h - imgH; pdf.addPage(); pdf.addImage(img, 'PNG', 0, pos, imgW, imgH); h -= pageH; }
+        pdf.save(`SkillGap_Report_${lastResult.role.replace(/\s+/g, '_')}_${Date.now()}.pdf`);
+        showToast('Report downloaded!', 'success');
+      } catch (err) { console.error(err); showToast('Failed to generate PDF', 'error'); }
+    }
+  </script>
+</body>
+
+</html>

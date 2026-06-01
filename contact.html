@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — SkillGap Pro | Let's Build Your Career Together</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="./assets/logo/SkillGap favicon.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- ============ LOADER ============ -->
+  <div id="loader">
+    <div class="loader-logo">
+      <img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:200px;height: auto;">
+    </div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- ============ TOAST WRAPPER ============ -->
+  <div class="toast-wrap" id="toastWrap"></div>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand brand-logo" href="index.html">
+        <!-- <span class="brand-mark"><i class="bi bi-graph-up-arrow"></i></span>
+      SkillGap <span class="brand-gradient ms-1">Pro</span> -->
+        <img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:180px;height: auto;">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <i class="bi bi-list fs-3"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="analyze.html">Analyze Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <button class="theme-toggle" id="themeToggle" title="Toggle theme"><i class="bi bi-moon-stars"></i></button>
+          <div id="authButtons" class="d-flex gap-2">
+            <button class="btn-ghost" onclick="openAuth('login')">Login</button>
+            <button class="btn-grad" onclick="openAuth('signup')">Sign Up</button>
+          </div>
+          <div id="userButtons" class="d-none align-items-center gap-2">
+            <span class="d-none d-md-inline text-muted-2 small">Hi, <strong id="userName">User</strong></span>
+            <button class="btn-ghost" onclick="logout()"><i class="bi bi-box-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ CONTACT HERO ============ -->
+  <section class="page-hero">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="container position-relative">
+      <div data-aos="fade-up">
+        <span class="badge-soft mb-3"><i class="bi bi-envelope-paper"></i> Get in Touch</span>
+        <h1 class="hero-title">We'd Love to <span class="brand-gradient">Hear From You</span></h1>
+        <p class="lead mx-auto" style="max-width:720px;color:var(--muted);">Have a question, partnership idea, or just
+          want to say hi? Our team responds to every message within 24 hours — no bots, no auto-replies, just real
+          humans who care about your career journey.</p>
+        <div class="d-flex flex-wrap gap-3 justify-content-center mt-4">
+          <a href="#contactForm" class="btn-grad btn-lg">Send a Message <i class="bi bi-arrow-down ms-1"></i></a>
+          <a href="#faq" class="btn-ghost btn-lg">Browse FAQs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT INFO CARDS ============ -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="contact-info-card text-center">
+            <div class="ic bg-grad-1 mx-auto"><i class="bi bi-geo-alt-fill"></i></div>
+            <h5 class="mb-2">Visit Us</h5>
+            <p class="text-muted-2 small mb-0">SkillGap Pro HQ<br>Aptech Learning, North Nazimabad<br>Karachi, Pakistan
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="contact-info-card text-center">
+            <div class="ic bg-grad-2 mx-auto"><i class="bi bi-telephone-fill"></i></div>
+            <h5 class="mb-2">Call Us</h5>
+            <p class="text-muted-2 small mb-0">+92 3299296212<br>+92 3299296212<br>Mon - Fri, 10am - 7pm</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="contact-info-card text-center">
+            <div class="ic bg-grad-3 mx-auto"><i class="bi bi-envelope-fill"></i></div>
+            <h5 class="mb-2">Email Us</h5>
+            <p class="text-muted-2 small mb-0">msaqibtech1@gmail.com<br>msaqibtech1@gmail.com<br>msaqibtech1@gmail.com
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="contact-info-card text-center">
+            <div class="ic bg-grad-4 mx-auto"><i class="bi bi-chat-dots-fill"></i></div>
+            <h5 class="mb-2">Live Chat</h5>
+            <p class="text-muted-2 small mb-0">Available 24/7<br>Average response: 3 min<br>English & Urdu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT FORM ============ -->
+  <section class="section" id="contactForm">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-5" data-aos="fade-right">
+          <span class="badge-soft mb-3"><i class="bi bi-send"></i> Send a Message</span>
+          <h2 class="section-title">Tell Us <span class="brand-gradient">What's on Your Mind</span></h2>
+          <p class="text-muted-2 mb-4" style="line-height:1.8;">Whether you're a student with a question, a college
+            looking to partner, or a recruiter exploring talent, we're here to help. Fill out the form and a real human
+            will get back to you within 24 hours.</p>
+          <div class="mt-4">
+            <div class="d-flex gap-3 align-items-start mb-3"><i class="bi bi-check-circle-fill text-success fs-5"></i>
+              <div><strong class="d-block">24-hour response guarantee</strong><span class="text-muted-2 small">We reply
+                  to every single message within one business day.</span></div>
+            </div>
+            <div class="d-flex gap-3 align-items-start mb-3"><i class="bi bi-check-circle-fill text-success fs-5"></i>
+              <div><strong class="d-block">No spam, ever</strong><span class="text-muted-2 small">Your email is used
+                  only to reply to your message. We never sell data.</span></div>
+            </div>
+            <div class="d-flex gap-3 align-items-start"><i class="bi bi-check-circle-fill text-success fs-5"></i>
+              <div><strong class="d-block">Multilingual support</strong><span class="text-muted-2 small">We respond in
+                  English, Hindi, Tamil, Telugu, and Kannada.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7" data-aos="fade-left">
+          <div class="glass-card">
+            <form class="contact-form"
+              onsubmit="event.preventDefault();showToast('Message sent! We will reply within 24 hours.','success');this.reset();">
+              <div class="row g-2">
+                <div class="col-md-6"><label class="form-label small fw-semibold">Full Name</label><input type="text"
+                    placeholder="Your Name" required></div>
+                <div class="col-md-6"><label class="form-label small fw-semibold">Email Address</label><input
+                    type="email" placeholder="you@example.com" required></div>
+              </div>
+              <div class="row g-2">
+                <div class="col-md-6"><label class="form-label small fw-semibold">Phone (optional)</label><input
+                    type="tel" placeholder="+91 ..."></div>
+                <div class="col-md-6"><label class="form-label small fw-semibold">Subject</label>
+                  <select required>
+                    <option value="">-- Select --</option>
+                    <option>General Question</option>
+                    <option>Technical Support</option>
+                    <option>Partnership / College Tie-up</option>
+                    <option>Press & Media</option>
+                    <option>Career Counseling</option>
+                    <option>Feedback / Feature Request</option>
+                  </select>
+                </div>
+              </div>
+              <label class="form-label small fw-semibold">Your Message</label>
+              <textarea rows="6" placeholder="Tell us how we can help you..." required></textarea>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="newsletter" checked style="width:auto;">
+                <label class="form-check-label small text-muted-2" for="newsletter">Also subscribe me to the weekly
+                  career insights newsletter.</label>
+              </div>
+              <button type="submit" class="btn-grad btn-lg w-100">Send Message <i class="bi bi-send ms-2"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ACCORDION ============ -->
+  <section class="section" id="faq" style="background:var(--brand-grad-soft);">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4" data-aos="fade-right">
+          <span class="badge-soft mb-3"><i class="bi bi-question-circle"></i> FAQ</span>
+          <h2 class="section-title">Frequently Asked <span class="brand-gradient">Questions</span></h2>
+          <p class="text-muted-2 mb-4" style="line-height:1.8;">Can't find what you're looking for? Reach out to us
+            directly — we love helping students and professionals navigate their career questions.</p>
+          <a href="#contactForm" class="btn-ghost">Still have questions? <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+        <div class="col-lg-8" data-aos="fade-left">
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse"
+                  data-bs-target="#f1">Is SkillGap Pro really free?</button></h2>
+              <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">Yes, 100% free. Unlimited analyses, unlimited PDF downloads, unlimited
+                  history. We're funded by grants and plan to introduce premium features for colleges and enterprises in
+                  the future — but the core student experience will always be free.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse"
+                  data-bs-target="#f2">How accurate is the skill matching?</button></h2>
+              <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">Our algorithm uses three-layer matching (exact, partial, synonym) against 10
+                  industry-verified skills per role. User studies show 96% satisfaction with match accuracy. We update
+                  role templates monthly based on real job postings from LinkedIn, Naukri, and Indeed.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse"
+                  data-bs-target="#f3">Can I analyze multiple roles?</button></h2>
+              <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">Absolutely! Many students analyze 4-5 roles to compare which one they're
+                  closest to. Your history stores every analysis, so you can revisit and compare anytime. This is
+                  actually one of our most powerful features for career clarity.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse"
+                  data-bs-target="#f4">Where is my data stored?</button></h2>
+              <div id="f4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">All your data is stored locally in your browser using LocalStorage. We don't
+                  send your analysis data to any server. Your privacy is sacred — that's why we explicitly chose a
+                  client-only architecture.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse"
+                  data-bs-target="#f5">Can colleges partner with SkillGap Pro?</button></h2>
+              <div id="f5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">Yes! We have special college partnership programs with custom dashboards for
+                  placement cells, bulk student onboarding, and institutional reports. Email us at colleges@skillgap.pro
+                  to get started.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse"
+                  data-bs-target="#f6">How often should I re-analyze my skills?</button></h2>
+              <div id="f6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">We recommend re-analyzing every 4-6 weeks as you learn new skills. The
+                  history timeline lets you visualize your progress over time — most users see their match score climb
+                  10-15% per month when following our recommendations.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse"
+                  data-bs-target="#f7">Do you offer career counseling?</button></h2>
+              <div id="f7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">Yes! Our Head Career Coach Meera Iyer and her team offer 1:1 video
+                  counseling sessions. Book via the contact form above and mention "career counseling" — we'll schedule
+                  a free 30-minute session within 48 hours.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MAP & SOCIAL ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-7" data-aos="fade-right">
+         <div
+  style="border-radius:22px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-lg);height:420px;background:var(--brand-grad-soft);position:relative;"
+>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d115771.88715456236!2d67.04332799999999!3d24.936448000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2s!4v1779720404992!5m2!1sen!2s"
+    style="width:100%;height:100%;border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+  ></iframe>
+
+  <a
+    href="https://maps.app.goo.gl/Yvi5S4Mv96aiTj2p6"
+    target="_blank"
+    class="btn-ghost"
+    style="
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      z-index:2;
+      background:white;
+      padding:10px 14px;
+      border-radius:10px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.2);
+      text-decoration:none;
+    "
+  >
+    <i class="bi bi-map me-1"></i>Open in Google Maps
+  </a>
+</div>
+        </div>
+        <div class="col-lg-5" data-aos="fade-left">
+          <div class="glass-card h-100">
+            <h4 class="mb-3">Follow Our Journey</h4>
+            <p class="text-muted-2 mb-4" style="line-height:1.7;">Stay connected with our latest updates, career tips,
+              new role templates, and success stories. Join 45,000+ followers across platforms.</p>
+            <div class="d-grid" style="gap:12px;">
+              <a href="#" class="btn-ghost d-flex align-items-center gap-3" style="padding:14px;"><i
+                  class="bi bi-linkedin" style="font-size:1.4rem;color:#0a66c2;"></i>
+                <div class="text-start"><strong>LinkedIn</strong>
+                  <div class="small text-muted-2">25,000 followers · Career tips & job insights</div>
+                </div>
+              </a>
+              <a href="#" class="btn-ghost d-flex align-items-center gap-3" style="padding:14px;"><i
+                  class="bi bi-twitter-x" style="font-size:1.4rem;"></i>
+                <div class="text-start"><strong>Twitter / X</strong>
+                  <div class="small text-muted-2">12,000 followers · Daily career threads</div>
+                </div>
+              </a>
+              <a href="#" class="btn-ghost d-flex align-items-center gap-3" style="padding:14px;"><i
+                  class="bi bi-instagram" style="font-size:1.4rem;color:#e4405f;"></i>
+                <div class="text-start"><strong>Instagram</strong>
+                  <div class="small text-muted-2">18,000 followers · Career reels & memes</div>
+                </div>
+              </a>
+              <a href="#" class="btn-ghost d-flex align-items-center gap-3" style="padding:14px;"><i
+                  class="bi bi-youtube" style="font-size:1.4rem;color:#ff0000;"></i>
+                <div class="text-start"><strong>YouTube</strong>
+                  <div class="small text-muted-2">8,500 subscribers · Career guidance videos</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <h4 class="mb-0 text-white"><img src="./assets/logo/SkillGap_Logo.png" alt="Logo"
+                style="width:180px;height: auto;"></h4>
+          </div>
+          <p class="small">An AI-inspired skill gap analysis platform built to help students and job seekers become
+            truly job-ready by identifying what to learn next.</p>
+          <div class="socials mt-3"><a href="#"><i class="bi bi-facebook"></i></a><a href="#"><i
+                class="bi bi-twitter-x"></i></a><a href="#"><i class="bi bi-linkedin"></i></a><a href="#"><i
+                class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-github"></i></a></div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Product</h6><a href="index.html">Home</a><a href="about.html">About</a><a href="how-it-works.html">How It
+            Works</a><a href="analyze.html">Analyze</a><a href="profile.html">Profile</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Company</h6><a href="team.html">Team</a><a href="testimonials.html">Testimonials</a><a
+            href="contact.html">Contact</a><a href="#">Careers</a><a href="#">Press</a>
+        </div>
+        <div class="col-lg-4">
+          <h6>Stay Updated</h6>
+          <p class="small">Subscribe to receive new career templates and platform updates every week.</p>
+          <form class="d-flex gap-2" onsubmit="event.preventDefault();showToast('Subscribed!','success');this.reset();">
+            <input type="email" placeholder="your@email.com" class="form-control" required>
+            <button class="btn-grad" type="submit"><i class="bi bi-send"></i></button>
+          </form>
+        </div>
+      </div>
+      <hr style="border-color:rgba(255,255,255,.1);margin:40px 0 20px;">
+      <div class="d-flex flex-wrap justify-content-center gap-2 small">
+        <div>© <span id="year"></span> SkillGap Pro. All rights reserved. Made By Muhammad Saqib.</div>
+        <!-- <div><a href="#" class="d-inline">Privacy</a> · <a href="#" class="d-inline">Terms</a> · <a href="#"
+            class="d-inline">Cookies</a></div> -->
+      </div>
+    </div>
+  </footer>
+  <button id="backTop" title="Back to top"><i class="bi bi-arrow-up"></i></button>
+  <div class="modal fade" id="authModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4">
+        <div class="text-center mb-3"><span class="brand-mark mx-auto mb-2"><i class="bi bi-graph-up-arrow"></i></span>
+          <h4 class="mb-0">Welcome to SkillGap <span class="brand-gradient">Pro</span></h4>
+        </div>
+        <div class="auth-tabs"><button id="tabLogin" class="active" onclick="switchAuth('login')">Login</button><button
+            id="tabSignup" onclick="switchAuth('signup')">Sign Up</button></div>
+        <form id="loginForm" class="d-block">
+          <div class="mb-3"><label class="form-label small fw-semibold">Email</label><input type="email"
+              class="form-control" id="loginEmail" required></div>
+          <div class="mb-3"><label class="form-label small fw-semibold">Password</label><input type="password"
+              class="form-control" id="loginPass" required></div><button type="submit"
+            class="btn-grad w-100 py-2 mt-2">Login</button>
+        </form>
+        <form id="signupForm" class="d-none">
+          <div class="mb-3"><label class="form-label small fw-semibold">Full Name</label><input type="text"
+              class="form-control" id="suName" required></div>
+          <div class="mb-3"><label class="form-label small fw-semibold">Email</label><input type="email"
+              class="form-control" id="suEmail" required></div>
+          <div class="row g-2">
+            <div class="col-6 mb-3"><label class="form-label small fw-semibold">Password</label><input type="password"
+                class="form-control" id="suPass" required></div>
+            <div class="col-6 mb-3"><label class="form-label small fw-semibold">Confirm</label><input type="password"
+                class="form-control" id="suPass2" required></div>
+          </div>
+          <div class="mb-3"><label class="form-label small fw-semibold">I am a...</label><select id="suRole"
+              class="form-select" required>
+              <option value="">-- Select --</option>
+              <option>Student</option>
+              <option>Job Seeker</option>
+              <option>Fresher</option>
+              <option>Professional</option>
+            </select></div><button type="submit" class="btn-grad w-100 py-2 mt-2">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

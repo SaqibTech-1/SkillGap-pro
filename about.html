@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — SkillGap Pro | Our Mission to Make Careers Accessible</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="icon" href="./assets/logo/SkillGap favicon.png" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" />
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ============ LOADER ============ -->
+<div id="loader">
+  <div class="loader-logo">
+    <img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:200px;height: auto;">
+  </div>
+  <div class="loader-bar"></div>
+</div>
+
+<!-- ============ TOAST WRAPPER ============ -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand brand-logo" href="index.html">
+      <!-- <span class="brand-mark"><i class="bi bi-graph-up-arrow"></i></span>
+      SkillGap <span class="brand-gradient ms-1">Pro</span> -->
+          <img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:180px;height: auto;">
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <i class="bi bi-list fs-3"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+        <li class="nav-item"><a class="nav-link" href="analyze.html">Analyze Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"><i class="bi bi-moon-stars"></i></button>
+        <div id="authButtons" class="d-flex gap-2">
+          <button class="btn-ghost" onclick="openAuth('login')">Login</button>
+          <button class="btn-grad" onclick="openAuth('signup')">Sign Up</button>
+        </div>
+        <div id="userButtons" class="d-none align-items-center gap-2">
+          <span class="d-none d-md-inline text-muted-2 small">Hi, <strong id="userName">User</strong></span>
+          <button class="btn-ghost" onclick="logout()"><i class="bi bi-box-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ INTRO BANNER ============ -->
+<section class="page-hero">
+  <div class="shape s1"></div>
+  <div class="shape s2"></div>
+  <div class="container position-relative">
+    <div data-aos="fade-up">
+      <span class="badge-soft mb-3"><i class="bi bi-info-circle"></i> About SkillGap Pro</span>
+      <h1 class="hero-title">Our Mission: <span class="brand-gradient">Make Career Success Predictable</span></h1>
+      <p class="lead mx-auto" style="max-width:720px;color:var(--muted);">We believe every student, fresher and career switcher deserves a clear, honest map of what it takes to land their dream job — not guesswork, not expensive coaches, just data-driven clarity.</p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center mt-4">
+        <a href="analyze.html" class="btn-grad btn-lg">Start Free Analysis <i class="bi bi-arrow-right ms-1"></i></a>
+        <a href="how-it-works.html" class="btn-ghost btn-lg">How It Works</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUR STORY ============ -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <span class="badge-soft mb-3"><i class="bi bi-book"></i> Our Story</span>
+        <h2 class="section-title">Born from a <span class="brand-gradient">Real Problem</span></h2>
+        <p class="text-muted-2" style="line-height:1.8;">In 2023, our founders watched thousands of talented students graduate with strong academics but zero clarity about what employers actually wanted. They had degrees, but no roadmap. They had motivation, but no mirror to show them their real skill gaps.</p>
+        <p class="text-muted-2" style="line-height:1.8;">Career counselors were expensive. Online assessments were generic. Job descriptions were overwhelming. So we asked: what if we built a single platform that compares your current skills to a real role, shows you exactly what's missing, and gives you a personalized plan to close the gap — all for free?</p>
+        <p class="text-muted-2" style="line-height:1.8;">That question became SkillGap Pro. Today it's used by 25,000+ learners across India, and we're just getting started.</p>
+        <div class="row g-3 mt-3">
+          <div class="col-4"><div class="counter-card"><div class="num"><span class="counter" data-target="2023">0</span></div><div class="lbl">Founded</div></div></div>
+          <div class="col-4"><div class="counter-card"><div class="num"><span class="counter" data-target="8">0</span>+</div><div class="lbl">Cities</div></div></div>
+          <div class="col-4"><div class="counter-card"><div class="num"><span class="counter" data-target="100">0</span>%</div><div class="lbl">Free</div></div></div>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="glass-card" style="background:var(--brand-grad);color:#fff;padding:40px;border:none;">
+          <i class="bi bi-quote" style="font-size:3rem;opacity:.4;"></i>
+          <h3 style="font-weight:600;line-height:1.4;">"Education tells you what to learn. The job market tells you what's actually needed. We bridge that gap."</h3>
+          <div class="d-flex align-items-center gap-3 mt-4">
+            <div style="width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.25);display:grid;place-items:center;font-weight:700;">AS</div>
+            <div><strong>Aditya Sharma</strong><div style="opacity:.8;font-size:.88rem;">Founder & CEO, SkillGap Pro</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MISSION & VISION ============ -->
+<section class="section" style="background:var(--brand-grad-soft);">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6" data-aos="fade-up">
+        <div class="glass-card h-100" style="border-top:4px solid var(--brand-1);">
+          <div class="feature-icon bg-grad-1"><i class="bi bi-bullseye"></i></div>
+          <h3>Our Mission</h3>
+          <p class="text-muted-2" style="line-height:1.8;">To democratize career intelligence by giving every learner — regardless of background, college brand, or financial status — a free, honest, data-driven view of their job readiness. We want to replace confusion with clarity, and anxiety with actionable steps.</p>
+          <ul class="mt-3 text-muted-2" style="line-height:2;">
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Free access for every student</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Honest, unbiased skill matching</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Role templates from real job postings</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card h-100" style="border-top:4px solid var(--brand-3);">
+          <div class="feature-icon bg-grad-2"><i class="bi bi-eye"></i></div>
+          <h3>Our Vision</h3>
+          <p class="text-muted-2" style="line-height:1.8;">A world where no talented person misses their dream job simply because they didn't know what to learn next. Where career growth is predictable, measurable, and accessible to anyone with internet access and the willingness to grow.</p>
+          <ul class="mt-3 text-muted-2" style="line-height:2;">
+            <li><i class="bi bi-globe text-primary me-2"></i>Reach 1 million learners by 2027</li>
+            <li><i class="bi bi-translate text-primary me-2"></i>Support 12+ Indian languages</li>
+            <li><i class="bi bi-buildings text-primary me-2"></i>Partner with 500+ colleges</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INDUSTRY PROBLEMS ============ -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="badge-soft mb-3"><i class="bi bi-exclamation-triangle"></i> Problems We Solve</span>
+      <h2 class="section-title">The <span class="brand-gradient">Career Crisis</span> Nobody Talks About</h2>
+      <p class="section-sub">India adds 12 million job seekers every year. Yet 65% remain unemployable — not because they aren't smart, but because the system failed to show them the map.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" data-aos="zoom-in">
+        <div class="glass-card text-center">
+          <div class="feature-icon bg-grad-3 mx-auto" style="width:70px;height:70px;font-size:1.8rem;"><i class="bi bi-person-x"></i></div>
+          <h5>Unemployment</h5>
+          <p class="text-muted-2 small mb-0">43% of graduates remain jobless for 2+ years after college, despite holding degrees.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+        <div class="glass-card text-center">
+          <div class="feature-icon bg-grad-4 mx-auto" style="width:70px;height:70px;font-size:1.8rem;"><i class="bi bi-signpost-split"></i></div>
+          <h5>No Guidance</h5>
+          <p class="text-muted-2 small mb-0">78% of students pick careers based on peer pressure, not actual interest or market demand.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+        <div class="glass-card text-center">
+          <div class="feature-icon bg-grad-5 mx-auto" style="width:70px;height:70px;font-size:1.8rem;"><i class="bi bi-clock-history"></i></div>
+          <h5>Outdated Skills</h5>
+          <p class="text-muted-2 small mb-0">University curricula lag industry needs by 3-5 years, creating an instant skill gap at graduation.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+        <div class="glass-card text-center">
+          <div class="feature-icon bg-grad-6 mx-auto" style="width:70px;height:70px;font-size:1.8rem;"><i class="bi bi-question-circle"></i></div>
+          <h5>Career Confusion</h5>
+          <p class="text-muted-2 small mb-0">Average student explores 6+ career paths before settling — wasting years on trial and error.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACHIEVEMENT STATS ============ -->
+<section class="section-sm">
+  <div class="container">
+    <div class="stats-bar" data-aos="zoom-in">
+      <div class="row g-4 position-relative" style="z-index:2;">
+        <div class="col-6 col-md-3 text-center stat"><strong class="counter" data-target="25000">0</strong><span>Students Helped</span></div>
+        <div class="col-6 col-md-3 text-center stat"><strong class="counter" data-target="87000">0</strong><span>Skills Analyzed</span></div>
+        <div class="col-6 col-md-3 text-center stat"><strong class="counter" data-target="12500">0</strong><span>Reports Downloaded</span></div>
+        <div class="col-6 col-md-3 text-center stat"><strong class="counter" data-target="62">0</strong><span>% Got Jobs in 90 Days</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FUTURE GOALS / ROADMAP ============ -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="badge-soft mb-3"><i class="bi bi-rocket-takeoff"></i> Our Roadmap</span>
+      <h2 class="section-title">What's <span class="brand-gradient">Coming Next</span></h2>
+      <p class="section-sub">We're building the most comprehensive career intelligence platform in India. Here's what's on our roadmap for the next 18 months.</p>
+    </div>
+    <div class="roadmap" data-aos="fade-up">
+      <div class="node"><div class="step-num">Q1</div><h5>AI Mentor Bot</h5><p class="text-muted-2 small mb-0">Chat with an AI career coach that suggests personalized learning paths based on your analysis history.</p></div>
+      <div class="node"><div class="step-num">Q2</div><h5>12+ Languages</h5><p class="text-muted-2 small mb-0">Full platform support in Hindi, Tamil, Telugu, Marathi, Kannada, Bengali and 6 more Indian languages.</p></div>
+      <div class="node"><div class="step-num">Q3</div><h5>College Partnerships</h5><p class="text-muted-2 small mb-0">Integrated dashboards for 500+ colleges to track placement readiness of their entire student body.</p></div>
+      <div class="node"><div class="step-num">Q4</div><h5>Job Board Integration</h5><p class="text-muted-2 small mb-0">Apply directly to roles where your skill match score exceeds 70%. Real jobs, real outcomes.</p></div>
+    </div>
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="contact.html" class="btn-grad btn-lg">Partner With Us <i class="bi bi-arrow-right ms-2"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="section-sm">
+  <div class="container">
+    <div class="split-banner" data-aos="zoom-in">
+      <div class="left d-flex flex-column justify-content-center">
+        <h2 class="mb-3" style="font-size:clamp(1.8rem,3vw,2.5rem);">Ready to close your skill gap?</h2>
+        <p class="mb-4" style="opacity:.9;">Join 25,000+ learners who are using SkillGap Pro to become job-ready faster. Free forever. No credit card required.</p>
+        <a href="analyze.html" class="btn btn-light btn-lg" style="border-radius:11px;font-weight:600;">Start Analyzing Now <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+      <div class="right d-flex flex-column justify-content-center">
+        <h4 class="mb-3">Still have questions?</h4>
+        <p class="text-muted-2">Our career counselors respond to every message within 24 hours. No bots, no auto-replies — just real humans who care about your growth.</p>
+        <a href="contact.html" class="btn-ghost align-self-start">Contact the Team <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <h4 class="mb-0 text-white"><img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:180px;height: auto;"></h4>
+          </div>
+          <p class="small">An AI-inspired skill gap analysis platform built to help students and job seekers become
+            truly job-ready by identifying what to learn next.</p>
+          <div class="socials mt-3"><a href="#"><i class="bi bi-facebook"></i></a><a href="#"><i
+                class="bi bi-twitter-x"></i></a><a href="#"><i class="bi bi-linkedin"></i></a><a href="#"><i
+                class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-github"></i></a></div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Product</h6><a href="index.html">Home</a><a href="about.html">About</a><a href="how-it-works.html">How It
+            Works</a><a href="analyze.html">Analyze</a><a href="profile.html">Profile</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Company</h6><a href="team.html">Team</a><a href="testimonials.html">Testimonials</a><a
+            href="contact.html">Contact</a><a href="#">Careers</a><a href="#">Press</a>
+        </div>
+        <div class="col-lg-4">
+          <h6>Stay Updated</h6>
+          <p class="small">Subscribe to receive new career templates and platform updates every week.</p>
+          <form class="d-flex gap-2" onsubmit="event.preventDefault();showToast('Subscribed!','success');this.reset();">
+            <input type="email" placeholder="your@email.com" class="form-control" required>
+            <button class="btn-grad" type="submit"><i class="bi bi-send"></i></button>
+          </form>
+        </div>
+      </div>
+      <hr style="border-color:rgba(255,255,255,.1);margin:40px 0 20px;">
+      <div class="d-flex flex-wrap justify-content-center gap-2 small">
+        <div>© <span id="year"></span> SkillGap Pro. All rights reserved. Made By Muhammad Saqib.</div>
+        <!-- <div><a href="#" class="d-inline">Privacy</a> · <a href="#" class="d-inline">Terms</a> · <a href="#"
+            class="d-inline">Cookies</a></div> -->
+      </div>
+    </div>
+  </footer>
+<button id="backTop" title="Back to top"><i class="bi bi-arrow-up"></i></button>
+<div class="modal fade" id="authModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content p-4"><div class="text-center mb-3"><span class="brand-mark mx-auto mb-2"><i class="bi bi-graph-up-arrow"></i></span><h4 class="mb-0">Welcome to SkillGap <span class="brand-gradient">Pro</span></h4></div><div class="auth-tabs"><button id="tabLogin" class="active" onclick="switchAuth('login')">Login</button><button id="tabSignup" onclick="switchAuth('signup')">Sign Up</button></div><form id="loginForm" class="d-block"><div class="mb-3"><label class="form-label small fw-semibold">Email</label><input type="email" class="form-control" id="loginEmail" placeholder="you@example.com" required></div><div class="mb-3"><label class="form-label small fw-semibold">Password</label><input type="password" class="form-control" id="loginPass" placeholder="••••••••" required></div><button type="submit" class="btn-grad w-100 py-2 mt-2">Login</button></form><form id="signupForm" class="d-none"><div class="mb-3"><label class="form-label small fw-semibold">Full Name</label><input type="text" class="form-control" id="suName" required></div><div class="mb-3"><label class="form-label small fw-semibold">Email</label><input type="email" class="form-control" id="suEmail" required></div><div class="row g-2"><div class="col-6 mb-3"><label class="form-label small fw-semibold">Password</label><input type="password" class="form-control" id="suPass" required></div><div class="col-6 mb-3"><label class="form-label small fw-semibold">Confirm</label><input type="password" class="form-control" id="suPass2" required></div></div><div class="mb-3"><label class="form-label small fw-semibold">I am a...</label><select id="suRole" class="form-select" required><option value="">-- Select --</option><option>Student</option><option>Job Seeker</option><option>Fresher</option><option>Professional</option></select></div><button type="submit" class="btn-grad w-100 py-2 mt-2">Create Account</button></form></div></div></div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

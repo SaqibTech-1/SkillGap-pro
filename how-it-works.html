@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How It Works — SkillGap Pro | 6 Steps to Career Clarity</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="icon" href="./assets/logo/SkillGap favicon.png" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" />
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ============ LOADER ============ -->
+<div id="loader">
+  <div class="loader-logo">
+    <img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:200px;height: auto;">
+  </div>
+  <div class="loader-bar"></div>
+</div>
+
+<!-- ============ TOAST WRAPPER ============ -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand brand-logo" href="index.html">
+      <!-- <span class="brand-mark"><i class="bi bi-graph-up-arrow"></i></span>
+      SkillGap <span class="brand-gradient ms-1">Pro</span> -->
+          <img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:180px;height: auto;">
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <i class="bi bi-list fs-3"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+        <li class="nav-item"><a class="nav-link" href="analyze.html">Analyze Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme"><i class="bi bi-moon-stars"></i></button>
+        <div id="authButtons" class="d-flex gap-2">
+          <button class="btn-ghost" onclick="openAuth('login')">Login</button>
+          <button class="btn-grad" onclick="openAuth('signup')">Sign Up</button>
+        </div>
+        <div id="userButtons" class="d-none align-items-center gap-2">
+          <span class="d-none d-md-inline text-muted-2 small">Hi, <strong id="userName">User</strong></span>
+          <button class="btn-ghost" onclick="logout()"><i class="bi bi-box-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ WORKFLOW HERO ============ -->
+<section class="page-hero">
+  <div class="shape s1"></div>
+  <div class="shape s2"></div>
+  <div class="container position-relative">
+    <div data-aos="fade-up">
+      <span class="badge-soft mb-3"><i class="bi bi-diagram-3"></i> How It Works</span>
+      <h1 class="hero-title">From <span class="brand-gradient">Confusion to Clarity</span> in 6 Simple Steps</h1>
+      <p class="lead mx-auto" style="max-width:720px;color:var(--muted);">No forms to email. No downloads. No consultants. Just you, your skills, and an intelligent engine that tells you exactly what's missing — in under 60 seconds.</p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center mt-4">
+        <a href="analyze.html" class="btn-grad btn-lg">Try It Now — Free <i class="bi bi-arrow-right ms-1"></i></a>
+        <a href="#step1" class="btn-ghost btn-lg">See All Steps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP-BY-STEP TIMELINE ============ -->
+<section class="section" id="step1">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="badge-soft mb-3"><i class="bi bi-list-ol"></i> The Journey</span>
+      <h2 class="section-title">A Clear Path to <span class="brand-gradient">Job Readiness</span></h2>
+      <p class="section-sub">Each step is designed to take less than 2 minutes. The entire analysis takes under 60 seconds from start to finish.</p>
+    </div>
+    <div class="timeline">
+      <div class="t-step left" data-aos="fade-right"><div class="t-icon">1</div><div class="t-body"><h5>Create Your Free Account</h5><p class="mb-0 text-muted-2">Sign up in 30 seconds with your email. No credit card, no spam, no hidden fees. Your data is encrypted and stored locally.</p></div></div>
+      <div class="t-step right" data-aos="fade-left"><div class="t-icon">2</div><div class="t-body"><h5>Pick Your Dream Career Role</h5><p class="mb-0 text-muted-2">Choose from 8+ trending roles like Frontend Developer, Data Analyst, UI/UX Designer, and more. Each role has 10 industry-verified skills mapped from real job postings.</p></div></div>
+      <div class="t-step left" data-aos="fade-right"><div class="t-icon">3</div><div class="t-body"><h5>Add Your Current Skills</h5><p class="mb-0 text-muted-2">Type your skills as easy tags — one by one or comma-separated. Our smart tag system auto-suggests and de-duplicates as you type.</p></div></div>
+      <div class="t-step right" data-aos="fade-left"><div class="t-icon">4</div><div class="t-body"><h5>Get Instant Analysis</h5><p class="mb-0 text-muted-2">Our matching engine compares your skills against the role requirements and generates a match percentage, missing skills, and improvement areas — in under 1 second.</p></div></div>
+      <div class="t-step left" data-aos="fade-right"><div class="t-icon">5</div><div class="t-body"><h5>Download Your PDF Report</h5><p class="mb-0 text-muted-2">Export a beautiful, professional PDF report with charts, skill breakdowns, and personalized recommendations. Perfect for mentors, career counselors, or LinkedIn.</p></div></div>
+      <div class="t-step right" data-aos="fade-left"><div class="t-icon">6</div><div class="t-body"><h5>Learn, Grow & Re-analyze</h5><p class="mb-0 text-muted-2">Follow the tailored recommendations, track your progress in your profile, and re-run the analysis monthly to watch your match score climb toward 100%.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROFESSION MATCHING SYSTEM ============ -->
+<section class="section" style="background:var(--brand-grad-soft);">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <span class="badge-soft mb-3"><i class="bi bi-cpu"></i> The Engine</span>
+        <h2 class="section-title">How Our <span class="brand-gradient">Matching System</span> Works</h2>
+        <p class="text-muted-2" style="line-height:1.8;">Our algorithm uses three layers of comparison to give you the most honest, accurate match score possible. It's not keyword stuffing — it's semantic matching.</p>
+        <div class="mt-4">
+          <div class="glass-card mb-3" style="padding:20px;">
+            <div class="d-flex align-items-start gap-3">
+              <div class="feature-icon bg-grad-1" style="width:48px;height:48px;font-size:1.1rem;margin:0;"><i class="bi bi-1-circle-fill"></i></div>
+              <div><h5 class="mb-1">Exact Skill Matching</h5><p class="text-muted-2 small mb-0">First, we check if your entered skills match any of the 10 required skills for your target role. These become your "Strong Skills" — weighted at 100%.</p></div>
+            </div>
+          </div>
+          <div class="glass-card mb-3" style="padding:20px;">
+            <div class="d-flex align-items-start gap-3">
+              <div class="feature-icon bg-grad-2" style="width:48px;height:48px;font-size:1.1rem;margin:0;"><i class="bi bi-2-circle-fill"></i></div>
+              <div><h5 class="mb-1">Partial & Synonym Matching</h5><p class="text-muted-2 small mb-0">Next, we detect partial overlaps — like "JS" matching "JavaScript", or "Py" matching "Python". These become "Improvement Areas" — weighted at 50%.</p></div>
+            </div>
+          </div>
+          <div class="glass-card" style="padding:20px;">
+            <div class="d-flex align-items-start gap-3">
+              <div class="feature-icon bg-grad-3" style="width:48px;height:48px;font-size:1.1rem;margin:0;"><i class="bi bi-3-circle-fill"></i></div>
+              <div><h5 class="mb-1">Gap Identification</h5><p class="text-muted-2 small mb-0">Everything not matched in the first two layers becomes a "Missing Skill" — the exact gaps you need to close to become job-ready.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="glass-card p-4">
+          <h5 class="mb-3"><i class="bi bi-calculator me-2"></i> Score Calculation</h5>
+          <p class="text-muted-2 small">Your match percentage is calculated as:</p>
+          <div style="background:var(--brand-grad-soft);padding:20px;border-radius:14px;font-family:monospace;font-size:.95rem;line-height:2;border:1px solid var(--border);">
+            Score = ((Strong + 0.5 × Improvement) / Total) × 100
+          </div>
+          <div class="mt-4">
+            <div class="bar-skill"><div class="top"><span>Example: 6 Strong, 2 Improvement out of 10</span><span>70%</span></div><div style="height:10px;background:rgba(0,0,0,.06);border-radius:8px;overflow:hidden;"><div style="width:70%;height:100%;background:var(--brand-grad);border-radius:8px;"></div></div></div>
+          </div>
+          <div class="row g-2 mt-3">
+            <div class="col-4 text-center"><div class="glass-card p-2"><div class="fw-bold text-success">75-100%</div><div class="small text-muted-2">Job Ready</div></div></div>
+            <div class="col-4 text-center"><div class="glass-card p-2"><div class="fw-bold" style="color:var(--brand-1);">50-74%</div><div class="small text-muted-2">Almost There</div></div></div>
+            <div class="col-4 text-center"><div class="glass-card p-2"><div class="fw-bold" style="color:#c63460;">0-49%</div><div class="small text-muted-2">Keep Learning</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DASHBOARD EXPLANATION ============ -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="badge-soft mb-3"><i class="bi bi-display"></i> The Dashboard</span>
+      <h2 class="section-title">Every Widget, <span class="brand-gradient">Explained</span></h2>
+      <p class="section-sub">Your analysis dashboard is packed with actionable insights. Here's what each section means and how to use it.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+        <div class="glass-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="feature-icon bg-grad-1" style="width:50px;height:50px;font-size:1.2rem;margin:0;"><i class="bi bi-pie-chart-fill"></i></div>
+            <h5 class="mb-0">Match Score Donut</h5>
+          </div>
+          <p class="text-muted-2 small mb-0">The circular progress chart shows your overall job-readiness percentage at a glance. Green zone (75%+) means you can start applying. Orange means 1-2 skills away. Red means more learning needed.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="feature-icon bg-grad-2" style="width:50px;height:50px;font-size:1.2rem;margin:0;"><i class="bi bi-check-circle-fill"></i></div>
+            <h5 class="mb-0">Strong Skills Card</h5>
+          </div>
+          <p class="text-muted-2 small mb-0">Skills you already have that match the role's requirements. These are your strengths — highlight them in your resume and interview answers. Leverage them to negotiate better.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="glass-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="feature-icon bg-grad-3" style="width:50px;height:50px;font-size:1.2rem;margin:0;"><i class="bi bi-x-circle-fill"></i></div>
+            <h5 class="mb-0">Missing Skills Card</h5>
+          </div>
+          <p class="text-muted-2 small mb-0">Critical skills required for the role that you don't have yet. These are your highest-priority learning targets. Focus on the top 3 first for maximum impact.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+        <div class="glass-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="feature-icon bg-grad-4" style="width:50px;height:50px;font-size:1.2rem;margin:0;"><i class="bi bi-arrow-up-circle-fill"></i></div>
+            <h5 class="mb-0">Improvement Areas</h5>
+          </div>
+          <p class="text-muted-2 small mb-0">Skills where you have partial knowledge — like knowing basic JavaScript but not React. These are quick wins. A focused weekend course can push them into "Strong".</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="feature-icon bg-grad-5" style="width:50px;height:50px;font-size:1.2rem;margin:0;"><i class="bi bi-stars"></i></div>
+            <h5 class="mb-0">Recommendations</h5>
+          </div>
+          <p class="text-muted-2 small mb-0">Curated, role-specific action items like "Build 3 React projects" or "Earn Google Ads certification". Each recommendation is tied to the gaps detected in your analysis.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="glass-card">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="feature-icon bg-grad-6" style="width:50px;height:50px;font-size:1.2rem;margin:0;"><i class="bi bi-file-earmark-pdf-fill"></i></div>
+            <h5 class="mb-0">PDF Export</h5>
+          </div>
+          <p class="text-muted-2 small mb-0">One-click downloadable report with all your analysis data, beautifully formatted. Share it with mentors, attach to job applications, or keep it as a personal milestone record.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REPORT GENERATION PROCESS ============ -->
+<section class="section" style="background:var(--brand-grad-soft);">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+        <span class="badge-soft mb-3"><i class="bi bi-file-earmark-pdf"></i> PDF Reports</span>
+        <h2 class="section-title">Reports That Look Like They Cost <span class="brand-gradient">₹5,000</span></h2>
+        <p class="text-muted-2" style="line-height:1.8;">Every report is auto-generated with a professional layout that mirrors what top career counselors produce. It includes your name, role, date, match score, skill breakdowns, and personalized recommendations.</p>
+        <div class="mt-4">
+          <div class="d-flex gap-3 align-items-start mb-3"><i class="bi bi-check-circle-fill text-success fs-5"></i><div><strong class="d-block">High-resolution charts</strong><span class="text-muted-2 small">Conic-gradient donut, skill bars, and progress visuals that look great in print.</span></div></div>
+          <div class="d-flex gap-3 align-items-start mb-3"><i class="bi bi-check-circle-fill text-success fs-5"></i><div><strong class="d-block">Multi-page support</strong><span class="text-muted-2 small">Long reports automatically split into clean, paginated PDF pages.</span></div></div>
+          <div class="d-flex gap-3 align-items-start mb-3"><i class="bi bi-check-circle-fill text-success fs-5"></i><div><strong class="d-block">Brand-consistent design</strong><span class="text-muted-2 small">Professional typography, spacing, and color scheme throughout.</span></div></div>
+          <div class="d-flex gap-3 align-items-start"><i class="bi bi-check-circle-fill text-success fs-5"></i><div><strong class="d-block">Printable & shareable</strong><span class="text-muted-2 small">Attach to job applications or share with mentors directly from your browser.</span></div></div>
+        </div>
+        <a href="analyze.html" class="btn-grad mt-4">Generate Your Report <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+      <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+        <div class="glass-card" style="background:#fff;color:#0e1330;border:none;padding:30px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+            <div style="display:flex;align-items:center;gap:8px;"><div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#5b3df5,#2bd4a8);display:grid;place-items:center;color:#fff;"><i class="bi bi-graph-up-arrow"></i></div><strong>SkillGap Pro Report</strong></div>
+            <span class="small" style="color:#5b6178;">Sample Preview</span>
+          </div>
+          <div style="border-top:2px solid var(--brand-grad);padding-top:16px;">
+            <h5 style="color:#5b3df5;">Data Analyst — 65% Match</h5>
+            <div class="mt-2" style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span style="background:#e7faf2;color:#0a8c6a;padding:4px 10px;border-radius:999px;font-size:.75rem;font-weight:600;">✓ Excel</span>
+              <span style="background:#e7faf2;color:#0a8c6a;padding:4px 10px;border-radius:999px;font-size:.75rem;font-weight:600;">✓ SQL</span>
+              <span style="background:#e7faf2;color:#0a8c6a;padding:4px 10px;border-radius:999px;font-size:.75rem;font-weight:600;">✓ Python</span>
+              <span style="background:#ffe9ef;color:#c63460;padding:4px 10px;border-radius:999px;font-size:.75rem;font-weight:600;">✗ Tableau</span>
+              <span style="background:#fff4dc;color:#a26a00;padding:4px 10px;border-radius:999px;font-size:.75rem;font-weight:600;">↑ Power BI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAREER GROWTH STRATEGY ============ -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="badge-soft mb-3"><i class="bi bi-rocket"></i> Career Growth Strategy</span>
+      <h2 class="section-title">Your 90-Day <span class="brand-gradient">Growth Roadmap</span></h2>
+      <p class="section-sub">Once you know your gaps, follow this proven framework to become job-ready in just 3 months. Used by 62% of our users who landed jobs within 90 days.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="glass-card text-center" style="border-top:4px solid var(--brand-1);">
+          <div class="feature-icon bg-grad-1 mx-auto" style="width:70px;height:70px;font-size:1.6rem;"><i class="bi bi-calendar-week"></i></div>
+          <h4>Month 1: Foundation</h4>
+          <p class="text-muted-2 small">Focus on the top 3 missing skills. Dedicate 2 hours daily to structured learning. Build 1 mini-project to reinforce concepts.</p>
+          <div class="mt-3"><span class="skill-chip chip-strong">2 hrs/day</span><span class="skill-chip chip-improve">1 project</span></div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="glass-card text-center" style="border-top:4px solid var(--brand-3);">
+          <div class="feature-icon bg-grad-2 mx-auto" style="width:70px;height:70px;font-size:1.6rem;"><i class="bi bi-calendar2-week"></i></div>
+          <h4>Month 2: Application</h4>
+          <p class="text-muted-2 small">Build 2 portfolio projects that showcase your new skills. Start contributing to open source or freelancing platforms.</p>
+          <div class="mt-3"><span class="skill-chip chip-strong">2 projects</span><span class="skill-chip chip-improve">GitHub activity</span></div>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="glass-card text-center" style="border-top:4px solid #ff7ab6;">
+          <div class="feature-icon bg-grad-3 mx-auto" style="width:70px;height:70px;font-size:1.6rem;"><i class="bi bi-calendar-month"></i></div>
+          <h4>Month 3: Job Hunt</h4>
+          <p class="text-muted-2 small">Re-analyze your skills on SkillGap Pro. Update your resume. Apply to 5 jobs daily. Practice interviews with real questions.</p>
+          <div class="mt-3"><span class="skill-chip chip-strong">Re-analyze</span><span class="skill-chip chip-miss">5 apps/day</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5" data-aos="fade-up">
+      <a href="analyze.html" class="btn-grad btn-lg">Start Your 90-Day Journey <i class="bi bi-arrow-right ms-2"></i></a>
+    </div>
+  </div>
+</section>
+
+ <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <h4 class="mb-0 text-white"><img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:180px;height: auto;"></h4>
+          </div>
+          <p class="small">An AI-inspired skill gap analysis platform built to help students and job seekers become
+            truly job-ready by identifying what to learn next.</p>
+          <div class="socials mt-3"><a href="#"><i class="bi bi-facebook"></i></a><a href="#"><i
+                class="bi bi-twitter-x"></i></a><a href="#"><i class="bi bi-linkedin"></i></a><a href="#"><i
+                class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-github"></i></a></div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Product</h6><a href="index.html">Home</a><a href="about.html">About</a><a href="how-it-works.html">How It
+            Works</a><a href="analyze.html">Analyze</a><a href="profile.html">Profile</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6>Company</h6><a href="team.html">Team</a><a href="testimonials.html">Testimonials</a><a
+            href="contact.html">Contact</a><a href="#">Careers</a><a href="#">Press</a>
+        </div>
+        <div class="col-lg-4">
+          <h6>Stay Updated</h6>
+          <p class="small">Subscribe to receive new career templates and platform updates every week.</p>
+          <form class="d-flex gap-2" onsubmit="event.preventDefault();showToast('Subscribed!','success');this.reset();">
+            <input type="email" placeholder="your@email.com" class="form-control" required>
+            <button class="btn-grad" type="submit"><i class="bi bi-send"></i></button>
+          </form>
+        </div>
+      </div>
+      <hr style="border-color:rgba(255,255,255,.1);margin:40px 0 20px;">
+      <div class="d-flex flex-wrap justify-content-center gap-2 small">
+        <div>© <span id="year"></span> SkillGap Pro. All rights reserved. Made By Muhammad Saqib.</div>
+        <!-- <div><a href="#" class="d-inline">Privacy</a> · <a href="#" class="d-inline">Terms</a> · <a href="#"
+            class="d-inline">Cookies</a></div> -->
+      </div>
+    </div>
+  </footer>
+<button id="backTop" title="Back to top"><i class="bi bi-arrow-up"></i></button>
+<div class="modal fade" id="authModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content p-4"><div class="text-center mb-3"><span class="brand-mark mx-auto mb-2"><i class="bi bi-graph-up-arrow"></i></span><h4 class="mb-0">Welcome to SkillGap <span class="brand-gradient">Pro</span></h4></div><div class="auth-tabs"><button id="tabLogin" class="active" onclick="switchAuth('login')">Login</button><button id="tabSignup" onclick="switchAuth('signup')">Sign Up</button></div><form id="loginForm" class="d-block"><div class="mb-3"><label class="form-label small fw-semibold">Email</label><input type="email" class="form-control" id="loginEmail" required></div><div class="mb-3"><label class="form-label small fw-semibold">Password</label><input type="password" class="form-control" id="loginPass" required></div><button type="submit" class="btn-grad w-100 py-2 mt-2">Login</button></form><form id="signupForm" class="d-none"><div class="mb-3"><label class="form-label small fw-semibold">Full Name</label><input type="text" class="form-control" id="suName" required></div><div class="mb-3"><label class="form-label small fw-semibold">Email</label><input type="email" class="form-control" id="suEmail" required></div><div class="row g-2"><div class="col-6 mb-3"><label class="form-label small fw-semibold">Password</label><input type="password" class="form-control" id="suPass" required></div><div class="col-6 mb-3"><label class="form-label small fw-semibold">Confirm</label><input type="password" class="form-control" id="suPass2" required></div></div><div class="mb-3"><label class="form-label small fw-semibold">I am a...</label><select id="suRole" class="form-select" required><option value="">-- Select --</option><option>Student</option><option>Job Seeker</option><option>Fresher</option><option>Professional</option></select></div><button type="submit" class="btn-grad w-100 py-2 mt-2">Create Account</button></form></div></div></div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
