@@ -197,6 +197,28 @@
       }
     });
 
+    // Active link highlighting based on current page
+    function setActiveNavLink(){
+      const currentPath = window.location.pathname;
+      const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'index.html';
+      
+      // Remove active class from all nav links
+      $('.nav-link').removeClass('active');
+      
+      // Find and activate the matching link
+      $('.nav-link').each(function(){
+        const href = $(this).attr('href');
+        if(href){
+          // Handle both relative paths and filenames
+          const hrefPage = href.substring(href.lastIndexOf('/') + 1);
+          if(hrefPage === currentPage || (currentPage === '' && hrefPage === 'index.html')){
+            $(this).addClass('active');
+          }
+        }
+      });
+    }
+    setActiveNavLink();
+
     // counters
     $(window).on('scroll resize', runCounters);
     runCounters();

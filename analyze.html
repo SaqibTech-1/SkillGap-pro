@@ -41,7 +41,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
           <li class="nav-item"><a class="nav-link" href="analyze.html">Analyze Skills</a></li>
@@ -111,8 +111,13 @@
             <div class="mb-3">
               <label class="form-label small fw-semibold">Your Skills <span class="text-muted-2 fw-normal">(press Enter
                   or comma to add)</span></label>
-              <div class="tag-input" id="tagBox"><input type="text" id="tagInput"
-                  placeholder="e.g. HTML, CSS, JavaScript..."></div>
+              <div class="tag-input-wrapper" style="position:relative;">
+                <div class="tag-input" id="tagBox"><input type="text" id="tagInput"
+                    placeholder="e.g. HTML, CSS, JavaScript..." autocomplete="off"></div>
+                <!-- Dropdown suggestions -->
+                <div class="skill-dropdown" id="skillDropdown"></div>
+              </div>
+              <div class="skill-tags-container" id="skillTagsContainer"></div>
               <div class="small text-muted-2 mt-2"><i class="bi bi-lightbulb"></i> Tip: add at least 4-5 skills for
                 accurate matching.</div>
             </div>
@@ -461,6 +466,273 @@
 
     let skillTags = [];
     let lastResult = null;
+    let dropdownVisible = false;
+    let selectedDropdownIndex = -1;
+
+    /* ===================== ABBREVIATION MAPPING ===================== */
+    // Maps common abbreviations to their full skill names
+    const ABBREVIATION_MAP = {
+      'js': 'JavaScript',
+      'ts': 'TypeScript',
+      'html': 'HTML',
+      'css': 'CSS',
+      'jsx': 'JSX',
+      'tsx': 'TSX',
+      'node': 'Node.js',
+      'nodejs': 'Node.js',
+      'react': 'React',
+      'vue': 'Vue.js',
+      'angular': 'Angular',
+      'next': 'Next.js',
+      'nextjs': 'Next.js',
+      'sql': 'SQL',
+      'nosql': 'NoSQL',
+      'rest': 'REST API',
+      'api': 'REST API',
+      'git': 'Git',
+      'docker': 'Docker',
+      'k8s': 'Kubernetes',
+      'aws': 'AWS',
+      'gcp': 'GCP',
+      'azure': 'Azure',
+      'ci/cd': 'CI/CD',
+      'ci': 'CI/CD',
+      'cd': 'CI/CD',
+      'dsa': 'DSA',
+      'cp': 'Competitive Programming',
+      'ml': 'Machine Learning',
+      'ai': 'AI',
+      'dl': 'Deep Learning',
+      'nlp': 'NLP',
+      'cv': 'Computer Vision',
+      'ui': 'UI Design',
+      'ux': 'UX Design',
+      'figma': 'Figma',
+      'xd': 'Adobe XD',
+      'ps': 'Photoshop',
+      'ai': 'Illustrator',
+      'seo': 'SEO',
+      'sem': 'SEM',
+      'ppc': 'PPC',
+      'smm': 'Social Media Marketing',
+      'dm': 'Digital Marketing',
+      'py': 'Python',
+      'java': 'Java',
+      'cpp': 'C++',
+      'c#': 'C#',
+      'csharp': 'C#',
+      'go': 'Go',
+      'golang': 'Go',
+      'rs': 'Rust',
+      'php': 'PHP',
+      'rb': 'Ruby',
+      'rails': 'Ruby on Rails',
+      'django': 'Django',
+      'flask': 'Flask',
+      'express': 'Express',
+      'nestjs': 'NestJS',
+      'mongodb': 'MongoDB',
+      'mongo': 'MongoDB',
+      'postgres': 'PostgreSQL',
+      'postgresql': 'PostgreSQL',
+      'mysql': 'MySQL',
+      'sqlite': 'SQLite',
+      'redis': 'Redis',
+      'graphql': 'GraphQL',
+      'gql': 'GraphQL',
+      'sass': 'SASS',
+      'scss': 'SCSS',
+      'less': 'LESS',
+      'tailwind': 'Tailwind',
+      'tailwindcss': 'Tailwind CSS',
+      'bootstrap': 'Bootstrap',
+      'material': 'Material UI',
+      'mui': 'Material UI',
+      'chakra': 'Chakra UI',
+      'styled': 'Styled Components',
+      'emotion': 'Emotion',
+      'webpack': 'Webpack',
+      'vite': 'Vite',
+      'gulp': 'Gulp',
+      'npm': 'NPM',
+      'yarn': 'Yarn',
+      'pnpm': 'pnpm',
+      'bash': 'Bash',
+      'shell': 'Shell Script',
+      'linux': 'Linux',
+      'windows': 'Windows',
+      'macos': 'macOS',
+      'excel': 'Excel',
+      'sheets': 'Google Sheets',
+      'tableau': 'Tableau',
+      'powerbi': 'Power BI',
+      'power bi': 'Power BI',
+      'pandas': 'Pandas',
+      'numpy': 'NumPy',
+      'sklearn': 'Scikit-learn',
+      'tensorflow': 'TensorFlow',
+      'pytorch': 'PyTorch',
+      'opencv': 'OpenCV',
+      'r': 'R',
+      'sass': 'SASS',
+      'jest': 'Jest',
+      'mocha': 'Mocha',
+      'cypress': 'Cypress',
+      'selenium': 'Selenium',
+      'testing': 'Testing',
+      'tdd': 'TDD',
+      'bdd': 'BDD',
+      'agile': 'Agile',
+      'scrum': 'Scrum',
+      'jira': 'Jira',
+      'confluence': 'Confluence',
+      'slack': 'Slack',
+      'teams': 'Microsoft Teams',
+      'zoom': 'Zoom',
+      'notion': 'Notion',
+      'trello': 'Trello',
+      'asana': 'Asana'
+    };
+
+    // Map skills to their categories/roles for context-aware filtering
+    const SKILL_CATEGORIES = {
+      'Frontend': ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Angular', 'Svelte', 'Next.js', 'Nuxt.js', 'Bootstrap', 'Tailwind', 'SASS', 'SCSS', 'LESS', 'Webpack', 'Vite', 'Figma', 'Responsive Design', 'JSX', 'TSX'],
+      'Backend': ['Node.js', 'Express', 'Python', 'Java', 'Go', 'Rust', 'PHP', 'Ruby', 'C#', 'Django', 'Flask', 'Ruby on Rails', 'NestJS', 'SQL', 'MongoDB', 'PostgreSQL', 'MySQL', 'Redis', 'REST API', 'GraphQL', 'Docker', 'Kubernetes', 'Linux', 'Authentication'],
+      'Full Stack': ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'MySQL', 'REST API', 'GraphQL', 'Docker', 'Git', 'Deployment', 'Next.js'],
+      'Data Science': ['Python', 'R', 'SQL', 'Excel', 'Pandas', 'NumPy', 'Scikit-learn', 'TensorFlow', 'PyTorch', 'Tableau', 'Power BI', 'Statistics', 'Data Cleaning', 'Visualization', 'Machine Learning', 'Deep Learning', 'NLP', 'Computer Vision', 'Data Analysis'],
+      'Design': ['Figma', 'Adobe XD', 'Sketch', 'Photoshop', 'Illustrator', 'InDesign', 'Typography', 'Color Theory', 'Wireframing', 'Prototyping', 'User Research', 'Design Systems', 'Accessibility', 'Branding', 'Layout', 'CorelDraw', 'UI Design', 'UX Design'],
+      'Marketing': ['SEO', 'SEM', 'Google Ads', 'Facebook Ads', 'Content Marketing', 'Analytics', 'Email Marketing', 'Social Media', 'Copywriting', 'Canva', 'Strategy', 'PPC', 'Social Media Marketing', 'Digital Marketing'],
+      'Cybersecurity': ['Networking', 'Linux', 'Python', 'Cryptography', 'Penetration Testing', 'SIEM', 'Firewalls', 'Risk Assessment', 'OWASP', 'Ethical Hacking', 'Networks', 'Bash', 'Shell Script'],
+      'DevOps': ['Docker', 'Kubernetes', 'CI/CD', 'AWS', 'Azure', 'GCP', 'Linux', 'Bash', 'Terraform', 'Jenkins', 'GitLab', 'GitHub Actions', 'Monitoring', 'Logging']
+    };
+
+    /* ===================== HELPER FUNCTIONS ===================== */
+
+    // Expand abbreviation to full skill name
+    function expandAbbreviation(input) {
+      const normalized = input.trim().toLowerCase();
+      return ABBREVIATION_MAP[normalized] || input.trim();
+    }
+
+    // Get all unique skills from ROLES
+    function getAllSkills() {
+      return [...new Set(Object.values(ROLES).flat())];
+    }
+
+    // Get skills for current role (context-aware)
+    function getContextSkills(role) {
+      if (!role) return getAllSkills();
+      return ROLES[role] || getAllSkills();
+    }
+
+    // Filter skills based on input and current role
+    function filterSkills(input, role) {
+      const normalizedInput = input.trim().toLowerCase();
+      if (!normalizedInput) return [];
+
+      const contextSkills = getContextSkills(role);
+      const allSkills = getAllSkills();
+
+      // First, check if input matches an abbreviation
+      const expanded = expandAbbreviation(input);
+      const expandedLower = expanded.toLowerCase();
+
+      // Filter skills that match the input
+      const matches = allSkills.filter(skill => {
+        const skillLower = skill.toLowerCase();
+        return skillLower.includes(normalizedInput) ||
+               normalizedInput.includes(skillLower) ||
+               skillLower.startsWith(normalizedInput);
+      });
+
+      // Prioritize context skills (skills from current role)
+      const contextMatches = matches.filter(s => contextSkills.includes(s));
+      const otherMatches = matches.filter(s => !contextSkills.includes(s));
+
+      // If expanded form is different and exists in skills, add it
+      if (expandedLower !== normalizedInput && expandedLower !== input.trim().toLowerCase()) {
+        const expandedMatch = allSkills.find(s => s.toLowerCase() === expandedLower);
+        if (expandedMatch && !matches.includes(expandedMatch)) {
+          contextSkills.includes(expandedMatch)
+            ? contextMatches.unshift(expandedMatch)
+            : otherMatches.unshift(expandedMatch);
+        }
+      }
+
+      return [...contextMatches, ...otherMatches].slice(0, 8); // Limit to 8 suggestions
+    }
+
+    /* ===================== DROPDOWN RENDERING ===================== */
+
+    function renderDropdown(suggestions, input) {
+      const $dropdown = $('#skillDropdown');
+
+      if (!suggestions.length) {
+        $dropdown.html('<div class="skill-dropdown-empty">No matching skills found. Type to add a custom skill.</div>');
+        $dropdown.addClass('show');
+        dropdownVisible = true;
+        return;
+      }
+
+      const currentRole = $('#aRole').val();
+      const contextSkills = getContextSkills(currentRole);
+
+      let html = '';
+
+      // Group by context relevance
+      const contextSuggestions = suggestions.filter(s => contextSkills.includes(s));
+      const otherSuggestions = suggestions.filter(s => !contextSkills.includes(s));
+
+      if (contextSuggestions.length) {
+        html += '<div class="skill-dropdown-header">Recommended for ' + (currentRole || 'Your Role') + '</div>';
+        contextSuggestions.forEach((skill, i) => {
+          const highlighted = highlightMatch(skill, input);
+          html += `<div class="skill-dropdown-item" data-skill="${escapeHtml(skill)}" data-index="${i}">
+            <span class="skill-name">${highlighted}</span>
+            <span class="skill-category">${getSkillCategory(skill)}</span>
+          </div>`;
+        });
+      }
+
+      if (otherSuggestions.length) {
+        html += '<div class="skill-dropdown-header">Other Skills</div>';
+        otherSuggestions.forEach((skill, i) => {
+          const highlighted = highlightMatch(skill, input);
+          html += `<div class="skill-dropdown-item" data-skill="${escapeHtml(skill)}" data-index="${i}">
+            <span class="skill-name">${highlighted}</span>
+            <span class="skill-category">${getSkillCategory(skill)}</span>
+          </div>`;
+        });
+      }
+
+      $dropdown.html(html);
+      $dropdown.addClass('show');
+      dropdownVisible = true;
+      selectedDropdownIndex = -1;
+    }
+
+    function highlightMatch(skill, input) {
+      if (!input) return escapeHtml(skill);
+      const regex = new RegExp(`(${escapeRegex(input)})`, 'gi');
+      return escapeHtml(skill).replace(regex, '<mark>$1</mark>');
+    }
+
+    function escapeRegex(string) {
+      return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function getSkillCategory(skill) {
+      for (const [category, skills] of Object.entries(SKILL_CATEGORIES)) {
+        if (skills.includes(skill)) return category;
+      }
+      return 'General';
+    }
+
+    function hideDropdown() {
+      $('#skillDropdown').removeClass('show');
+      dropdownVisible = false;
+      selectedDropdownIndex = -1;
+    }
 
     /* ===================== INIT ===================== */
 
@@ -474,8 +746,89 @@
         populateRoles();
         renderHistory();
         renderRoleCards();
+        initSkillInput();
       }
     });
+
+    /* ===================== SKILL INPUT INITIALIZATION ===================== */
+
+    function initSkillInput() {
+      const $input = $('#tagInput');
+      const $dropdown = $('#skillDropdown');
+
+      // Input event - show/filter dropdown
+      $input.on('input', function() {
+        const value = this.value.trim();
+        const role = $('#aRole').val();
+
+        if (value.length >= 1) {
+          const suggestions = filterSkills(value, role);
+          renderDropdown(suggestions, value);
+        } else {
+          hideDropdown();
+        }
+      });
+
+      // Keyboard navigation
+      $input.on('keydown', function(e) {
+        if (!dropdownVisible) return;
+
+        const $items = $dropdown.find('.skill-dropdown-item');
+        const totalItems = $items.length;
+
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          selectedDropdownIndex = Math.min(selectedDropdownIndex + 1, totalItems - 1);
+          updateDropdownSelection($items);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          selectedDropdownIndex = Math.max(selectedDropdownIndex - 1, 0);
+          updateDropdownSelection($items);
+        } else if (e.key === 'Enter' && selectedDropdownIndex >= 0) {
+          e.preventDefault();
+          const $selected = $items.eq(selectedDropdownIndex);
+          if ($selected.length) {
+            const skill = $selected.data('skill');
+            addSkill(skill);
+            this.value = '';
+            hideDropdown();
+          }
+        } else if (e.key === 'Escape') {
+          hideDropdown();
+        } else if (e.key === 'Enter' || e.key === ',') {
+          // Will be handled by existing keydown handler
+        }
+      });
+
+      // Click on dropdown item
+      $dropdown.on('click', '.skill-dropdown-item', function() {
+        const skill = $(this).data('skill');
+        if (skill) {
+          addSkill(skill);
+          $input.val('');
+          hideDropdown();
+        }
+      });
+
+      // Click outside to close dropdown
+      $(document).on('click', function(e) {
+        if (!$(e.target).closest('.tag-input-wrapper').length) {
+          hideDropdown();
+        }
+      });
+
+      // Focus on input when clicking tag-input area
+      $('#tagBox').on('click', function() {
+        $input.focus();
+      });
+    }
+
+    function updateDropdownSelection($items) {
+      $items.removeClass('selected');
+      if (selectedDropdownIndex >= 0) {
+        $items.eq(selectedDropdownIndex).addClass('selected');
+      }
+    }
 
     /* ===================== ROLE SETUP ===================== */
 
@@ -575,17 +928,23 @@
       const v = raw.trim();
       if (!v) return;
 
-      const exists = skillTags.some(s => normalizeSkill(s) === normalizeSkill(v));
+      // Expand abbreviation to full skill name
+      const expanded = expandAbbreviation(v);
 
-      if (!isValidSkillInput(v)) {
+      const exists = skillTags.some(s => normalizeSkill(s) === normalizeSkill(expanded));
+
+      if (!isValidSkillInput(expanded)) {
         showToast(`Invalid skill: "${v}"`, 'error');
         return;
       }
 
       if (!exists) {
-        skillTags.push(v);
+        skillTags.push(expanded);
         renderTags();
         updateSuggestedSkills($('#aRole').val());
+        if (expanded !== v) {
+          showToast(`Added: ${expanded} (expanded from "${v}")`, 'success');
+        }
       }
     }
 
