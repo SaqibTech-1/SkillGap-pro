@@ -176,11 +176,7 @@
                       class="text-muted-2 fw-normal small" id="cntStrong"></span></h6>
                   <div id="strongList"></div>
                 </div>
-                <div class="glass-card mt-3">
-                  <h6 style="color:#c63460;"><i class="bi bi-x-circle"></i> Missing Skills <span
-                      class="text-muted-2 fw-normal small" id="cntMiss"></span></h6>
-                  <div id="missList"></div>
-                </div>
+                
               </div>
               <div class="col-md-6">
                 <div class="glass-card">
@@ -198,6 +194,16 @@
                 <div class="glass-card">
                   <h6><i class="bi bi-bar-chart-line text-primary"></i> Skill-by-Skill Breakdown</h6>
                   <div id="barList"></div>
+                </div>
+              </div>
+              <div class="col-12" id="requiredCard" style="display:none;">
+                <div class="glass-card">
+                  <h6 style="color:var(--brand-1);"><i class="bi bi-stars"></i> Required for Higher Recruitment
+                    Chances</h6>
+                  <p class="text-muted-2 small mb-3">These are the <strong id="reqCount">0</strong> skills required for
+                    <strong id="reqRole"></strong> that you haven't fully mastered yet. Closing these gaps will
+                    significantly boost your hiring chances.</p>
+                  <ul class="skill-need-list" id="recruitList"></ul>
                 </div>
               </div>
               <div class="col-12 d-flex flex-wrap gap-2">
@@ -1154,6 +1160,20 @@
         });
       }, 100);
 
+      // Required for Higher Recruitment Chances
+      const reqSkills = ROLES[r.role].filter(s => !r.strong.includes(s));
+      $('#reqCount').text(reqSkills.length);
+      $('#reqRole').text(r.role);
+      $('#recruitList').html(reqSkills.length
+        ? reqSkills.map(s => {
+            const type = r.missing.includes(s) ? 'chip-miss' : 'chip-improve';
+            const icon = r.missing.includes(s) ? 'bi-x' : 'bi-arrow-up';
+            return `<li><span class="skill-chip ${type}"><i class="bi ${icon}"></i>${escapeHtml(s)}</span></li>`;
+          }).join('')
+        : '<li class="text-muted-2 small">You already have all the required skills for this role — excellent!</li>'
+      );
+      $('#requiredCard').css('display', 'block');
+
       $('#resultBox')[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
@@ -1165,6 +1185,7 @@
       renderTags();
       $('#emptyState').removeClass('d-none');
       $('#resultBox').addClass('d-none');
+      $('#requiredCard').css('display', 'none');
       lastResult = null;
     }
     /* ===== HISTORY ===== */

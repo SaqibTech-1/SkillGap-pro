@@ -396,6 +396,13 @@ h1,h2,h3,h4,h5{ font-family:'Space Grotesk','Plus Jakarta Sans',sans-serif;font-
   position:sticky;top:0;
 }
 .result-grid .glass-card{ padding:24px;}
+
+/* Required for Higher Recruitment Chances */
+.skill-need-list{
+  list-style:none;padding-left:0;margin:0;
+  display:flex;flex-wrap:wrap;gap:10px;
+}
+.skill-need-list li{ display:inline-flex; }
 .big-donut{
   width:220px;height:220px;border-radius:50%;
   background:conic-gradient(var(--brand-1) calc(var(--p,0)*1%), rgba(125,77,255,.1) 0);
