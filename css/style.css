@@ -1616,3 +1616,15 @@ h5 {
     min-height: auto !important;
   }
 }
+
+/* ====== DISABLE AOS FADE EFFECT ON MOBILE (RESPONSIVE ONLY) ====== */
+/* Keeps content fully visible and removes scroll/transition animations
+   on small screens without affecting desktop behavior. */
+@media (max-width: 767px) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    pointer-events: auto !important;
+  }
+}
