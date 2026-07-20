@@ -17,7 +17,6 @@
 
 <body>
 
-  <!-- ============ LOADER ============ -->
   <div id="loader">
     <div class="loader-logo">
       <img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:200px;height: auto;">
@@ -25,10 +24,8 @@
     <div class="loader-bar"></div>
   </div>
 
-  <!-- ============ TOAST WRAPPER ============ -->
   <div class="toast-wrap" id="toastWrap"></div>
 
-  <!-- ============ NAVBAR ============ -->
   <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand brand-logo" href="index.html">
@@ -65,7 +62,6 @@
     </div>
   </nav>
 
-  <!-- ============ ANALYZE HERO ============ -->
   <section class="page-hero">
     <div class="shape s1"></div>
     <div class="shape s2"></div>
@@ -84,7 +80,6 @@
     </div>
   </section>
 
-  <!-- ============ ANALYZE FORM (Profession + Skills Input) ============ -->
   <section class="section" id="analyzeForm">
     <div class="container">
       <div class="row g-4">
@@ -221,7 +216,6 @@
     </div>
   </section>
 
-  <!-- ============ PROFESSION SELECTION CARDS ============ -->
   <section class="section" style="background:var(--brand-grad-soft);">
     <div class="container">
       <div class="text-center mb-5" data-aos="fade-up">
@@ -234,7 +228,6 @@
     </div>
   </section>
 
-  <!-- ============ SUGGESTED SKILLS (Dynamic) ============ -->
   <section class="section">
     <div class="container">
       <div class="text-center mb-5" data-aos="fade-up">
@@ -263,7 +256,6 @@
     </div>
   </section>
 
-  <!-- ============ LEARNING RESOURCES ============ -->
   <section class="section" style="background:var(--brand-grad-soft);">
     <div class="container">
       <div class="text-center mb-5" data-aos="fade-up">
@@ -349,7 +341,6 @@
     </div>
   </section>
 
-  <!-- ============ ANALYSIS HISTORY ============ -->
   <section class="section">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
@@ -363,7 +354,6 @@
     </div>
   </section>
 
-  <!-- ============ CTA ============ -->
   <section class="section-sm">
     <div class="container">
       <div class="newsletter" data-aos="zoom-in">
@@ -475,8 +465,6 @@
     let dropdownVisible = false;
     let selectedDropdownIndex = -1;
 
-    /* ===================== ABBREVIATION MAPPING ===================== */
-    // Maps common abbreviations to their full skill names
     const ABBREVIATION_MAP = {
       'js': 'JavaScript',
       'ts': 'TypeScript',
@@ -600,7 +588,6 @@
       'asana': 'Asana'
     };
 
-    // Map skills to their categories/roles for context-aware filtering
     const SKILL_CATEGORIES = {
       'Frontend': ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Angular', 'Svelte', 'Next.js', 'Nuxt.js', 'Bootstrap', 'Tailwind', 'SASS', 'SCSS', 'LESS', 'Webpack', 'Vite', 'Figma', 'Responsive Design', 'JSX', 'TSX'],
       'Backend': ['Node.js', 'Express', 'Python', 'Java', 'Go', 'Rust', 'PHP', 'Ruby', 'C#', 'Django', 'Flask', 'Ruby on Rails', 'NestJS', 'SQL', 'MongoDB', 'PostgreSQL', 'MySQL', 'Redis', 'REST API', 'GraphQL', 'Docker', 'Kubernetes', 'Linux', 'Authentication'],
@@ -612,26 +599,20 @@
       'DevOps': ['Docker', 'Kubernetes', 'CI/CD', 'AWS', 'Azure', 'GCP', 'Linux', 'Bash', 'Terraform', 'Jenkins', 'GitLab', 'GitHub Actions', 'Monitoring', 'Logging']
     };
 
-    /* ===================== HELPER FUNCTIONS ===================== */
-
-    // Expand abbreviation to full skill name
     function expandAbbreviation(input) {
       const normalized = input.trim().toLowerCase();
       return ABBREVIATION_MAP[normalized] || input.trim();
     }
 
-    // Get all unique skills from ROLES
     function getAllSkills() {
       return [...new Set(Object.values(ROLES).flat())];
     }
 
-    // Get skills for current role (context-aware)
     function getContextSkills(role) {
       if (!role) return getAllSkills();
       return ROLES[role] || getAllSkills();
     }
 
-    // Filter skills based on input and current role
     function filterSkills(input, role) {
       const normalizedInput = input.trim().toLowerCase();
       if (!normalizedInput) return [];
@@ -639,11 +620,9 @@
       const contextSkills = getContextSkills(role);
       const allSkills = getAllSkills();
 
-      // First, check if input matches an abbreviation
       const expanded = expandAbbreviation(input);
       const expandedLower = expanded.toLowerCase();
 
-      // Filter skills that match the input
       const matches = allSkills.filter(skill => {
         const skillLower = skill.toLowerCase();
         return skillLower.includes(normalizedInput) ||
@@ -651,11 +630,9 @@
                skillLower.startsWith(normalizedInput);
       });
 
-      // Prioritize context skills (skills from current role)
       const contextMatches = matches.filter(s => contextSkills.includes(s));
       const otherMatches = matches.filter(s => !contextSkills.includes(s));
 
-      // If expanded form is different and exists in skills, add it
       if (expandedLower !== normalizedInput && expandedLower !== input.trim().toLowerCase()) {
         const expandedMatch = allSkills.find(s => s.toLowerCase() === expandedLower);
         if (expandedMatch && !matches.includes(expandedMatch)) {
@@ -668,7 +645,6 @@
       return [...contextMatches, ...otherMatches].slice(0, 8); // Limit to 8 suggestions
     }
 
-    /* ===================== DROPDOWN RENDERING ===================== */
 
     function renderDropdown(suggestions, input) {
       const $dropdown = $('#skillDropdown');
@@ -685,7 +661,6 @@
 
       let html = '';
 
-      // Group by context relevance
       const contextSuggestions = suggestions.filter(s => contextSkills.includes(s));
       const otherSuggestions = suggestions.filter(s => !contextSkills.includes(s));
 
@@ -740,7 +715,6 @@
       selectedDropdownIndex = -1;
     }
 
-    /* ===================== INIT ===================== */
 
     $(document).ready(function () {
       if (!currentUser()) {
@@ -756,13 +730,11 @@
       }
     });
 
-    /* ===================== SKILL INPUT INITIALIZATION ===================== */
 
     function initSkillInput() {
       const $input = $('#tagInput');
       const $dropdown = $('#skillDropdown');
 
-      // Input event - show/filter dropdown
       $input.on('input', function() {
         const value = this.value.trim();
         const role = $('#aRole').val();
@@ -775,7 +747,6 @@
         }
       });
 
-      // Keyboard navigation
       $input.on('keydown', function(e) {
         if (!dropdownVisible) return;
 
@@ -802,11 +773,9 @@
         } else if (e.key === 'Escape') {
           hideDropdown();
         } else if (e.key === 'Enter' || e.key === ',') {
-          // Will be handled by existing keydown handler
         }
       });
 
-      // Click on dropdown item
       $dropdown.on('click', '.skill-dropdown-item', function() {
         const skill = $(this).data('skill');
         if (skill) {
@@ -816,14 +785,12 @@
         }
       });
 
-      // Click outside to close dropdown
       $(document).on('click', function(e) {
         if (!$(e.target).closest('.tag-input-wrapper').length) {
           hideDropdown();
         }
       });
 
-      // Focus on input when clicking tag-input area
       $('#tagBox').on('click', function() {
         $input.focus();
       });
@@ -836,7 +803,6 @@
       }
     }
 
-    /* ===================== ROLE SETUP ===================== */
 
     function populateRoles() {
       const $s = $('#aRole');
@@ -909,7 +875,6 @@
       updateSuggestedSkills(this.value);
     });
 
-    /* ===================== SKILL SYSTEM ===================== */
 
     function normalizeSkill(s) {
       return s.trim().toLowerCase();
@@ -920,21 +885,17 @@
 
       if (s.length < 2) return false;
 
-      // block garbage patterns
       if (/^(.)\1+$/.test(s)) return false;
       if (/^\d+$/.test(s)) return false;
 
-      // 🔥 IMPORTANT: must exist in your system OR be close match
       const allSkills = new Set(Object.values(ROLES).flat().map(normalizeSkill));
 
       return allSkills.has(s);
     }
-    /* 🔥 SINGLE SOURCE OF TRUTH FOR ADDING SKILLS */
     function addSkill(raw) {
       const v = raw.trim();
       if (!v) return;
 
-      // Expand abbreviation to full skill name
       const expanded = expandAbbreviation(v);
 
       const exists = skillTags.some(s => normalizeSkill(s) === normalizeSkill(expanded));
@@ -954,7 +915,6 @@
       }
     }
 
-    /* ===================== SUGGESTED SKILLS ===================== */
 
     function updateSuggestedSkills(role) {
       if (!role) {
@@ -998,7 +958,6 @@
       renderTags();
     }
 
-    /* ===================== TAG INPUT ===================== */
 
     function renderTags() {
       $('#tagBox .tag-item').remove();
@@ -1034,7 +993,6 @@
       this.value = '';
     });
 
-    /* ===================== ANALYSIS ===================== */
 
     function runAnalysis() {
       const u = currentUser();
@@ -1084,7 +1042,6 @@
       showToast('Analysis complete!', 'success');
     }
 
-    /* ===================== RESULT UI ===================== */
 
     function renderResult(r) {
       $('#emptyState').addClass('d-none');
@@ -1160,7 +1117,6 @@
         });
       }, 100);
 
-      // Required for Higher Recruitment Chances
       const reqSkills = ROLES[r.role].filter(s => !r.strong.includes(s));
       $('#reqCount').text(reqSkills.length);
       $('#reqRole').text(r.role);
@@ -1177,7 +1133,6 @@
       $('#resultBox')[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    /* ===================== RESET ===================== */
 
     function resetForm() {
       $('#aRole').val('');
@@ -1188,7 +1143,7 @@
       $('#requiredCard').css('display', 'none');
       lastResult = null;
     }
-    /* ===== HISTORY ===== */
+
     function getReports() { const u = currentUser(); if (!u) return []; return LS.get('sgp_reports_' + u.email, []); }
     function saveReport(r) { const u = currentUser(); if (!u) return; const arr = getReports(); arr.unshift(r); LS.set('sgp_reports_' + u.email, arr.slice(0, 20)); renderHistory(); }
     function deleteReport(id) { const u = currentUser(); if (!u) return; LS.set('sgp_reports_' + u.email, getReports().filter(r => r.id !== id)); renderHistory(); showToast('Report deleted', 'warning'); }
@@ -1204,7 +1159,6 @@
     </div>`).join(''));
     }
 
-    /* ===== PDF REPORT ===== */
     const LOGO_URL = "./assets/logo/SkillGap_Logo.png";
 
     function buildReportHTML(r) {

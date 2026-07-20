@@ -1,8 +1,4 @@
-  /* =======================================================
-    SkillGap Pro — Shared Logic
-    ======================================================= */
-
-  /* ---------- ROLES DATA ---------- */
+  //  ROLES DATA
   const ROLES = {
     "Frontend Developer":  ["HTML","CSS","JavaScript","Bootstrap","Git","Responsive Design","React","Tailwind","TypeScript","Figma"],
     "Backend Developer":   ["Node.js","Express","SQL","MongoDB","REST API","Git","Authentication","Docker","Linux","Python"],
@@ -25,14 +21,13 @@
     "Cybersecurity Analyst": ["Practice on TryHackMe & HackTheBox","Earn CompTIA Security+ basics","Set up a home lab","Learn one SIEM tool deeply"]
   };
 
-  /* ---------- LS HELPERS ---------- */
   const LS = {
     get:(k,def=null)=>{ try{ return JSON.parse(localStorage.getItem(k)) ?? def; }catch{ return def; } },
     set:(k,v)=>localStorage.setItem(k,JSON.stringify(v)),
     del:(k)=>localStorage.removeItem(k)
   };
 
-  /* ---------- AUTH ---------- */
+  // Auth
   function getUsers(){ return LS.get('sgp_users', []); }
   function saveUsers(u){ LS.set('sgp_users', u); }
   function currentUser(){ return LS.get('sgp_session', null); }
@@ -103,7 +98,6 @@
     }
   }
 
-  /* ---------- TOAST ---------- */
   function showToast(msg, type='info'){
     const icons = { success:'check-circle-fill', error:'x-circle-fill', warning:'exclamation-triangle-fill', info:'info-circle-fill' };
     const colors = { success:'#2bd4a8', error:'#ff5c8a', warning:'#ffb547', info:'#5b3df5' };
@@ -112,14 +106,12 @@
     setTimeout(()=>{ $t.fadeOut(300, ()=>$t.remove()); }, 3200);
   }
 
-  /* ---------- THEME ---------- */
   function applyTheme(t){
     document.documentElement.setAttribute('data-bs-theme', t);
     LS.set('sgp_theme', t);
     $('#themeToggle i').attr('class', t==='dark' ? 'bi bi-sun' : 'bi bi-moon-stars');
   }
 
-  /* ---------- COUNTERS ---------- */
   function runCounters(){
     $('.counter').each(function(){
       const $el = $(this);
@@ -141,37 +133,28 @@
     return r.top < window.innerHeight - 50 && r.bottom > 0;
   }
 
-  /* ---------- UTILITIES ---------- */
   function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
 
-  /* ---------- PAGE SPECIFIC BINDINGS (on DOM ready) ---------- */
   $(document).ready(function(){
-    // hide loader
     setTimeout(()=>document.getElementById('loader')?.classList.add('hide'), 700);
 
-    // AOS
     if(typeof AOS!=='undefined') AOS.init({ duration:800, once:true, offset:60 });
 
-    // year
     $('#year').text(new Date().getFullYear());
 
-    // theme
     applyTheme(LS.get('sgp_theme', 'light'));
     $('#themeToggle').on('click', ()=>{
       const cur = document.documentElement.getAttribute('data-bs-theme');
       applyTheme(cur==='dark'?'light':'dark');
     });
 
-    // auth forms
     $('#signupForm').off('submit').on('submit', function(e){ e.preventDefault(); doSignup(); });
     $('#loginForm').off('submit').on('submit', function(e){ e.preventDefault(); doLogin(); });
 
-    // nav scroll + backtop + active
     $(window).on('scroll', function(){
       const sc = $(this).scrollTop();
       $('#mainNav').toggleClass('scrolled', sc > 30);
       $('#backTop').toggleClass('show', sc > 400);
-      // active section for current page
       $('section[id]').each(function(){
         const top = $(this).offset()?.top - 120 || 0;
         const bot = top + $(this).outerHeight();
@@ -184,7 +167,6 @@
     });
     $('#backTop').on('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
 
-    // close mobile menu
     $('.nav-link').on('click', function(){
       const target = $(this).attr('href');
       if(target && target.startsWith('#')){
@@ -197,19 +179,15 @@
       }
     });
 
-    // Active link highlighting based on current page
     function setActiveNavLink(){
       const currentPath = window.location.pathname;
       const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'index.html';
       
-      // Remove active class from all nav links
       $('.nav-link').removeClass('active');
       
-      // Find and activate the matching link
       $('.nav-link').each(function(){
         const href = $(this).attr('href');
         if(href){
-          // Handle both relative paths and filenames
           const hrefPage = href.substring(href.lastIndexOf('/') + 1);
           if(hrefPage === currentPage || (currentPage === '' && hrefPage === 'index.html')){
             $(this).addClass('active');
@@ -219,10 +197,8 @@
     }
     setActiveNavLink();
 
-    // counters
     $(window).on('scroll resize', runCounters);
     runCounters();
 
-    // auth state
     refreshAuthUI();
   });

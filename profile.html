@@ -1,275 +1,303 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Profile — SkillGap Pro | Your Career Dashboard</title>
-<link rel="stylesheet" href="css/style.css" />
-<link rel="icon" href="./assets/logo/SkillGap favicon.png" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" />
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — SkillGap Pro | Your Career Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="./assets/logo/SkillGap favicon.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet" />
 </head>
+
 <body>
 
-<!-- ============ LOADER ============ -->
-<div id="loader">
-  <div class="loader-logo">
-    <img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:200px;height: auto;">
+  <div id="loader">
+    <div class="loader-logo">
+      <img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:200px;height: auto;">
+    </div>
+    <div class="loader-bar"></div>
   </div>
-  <div class="loader-bar"></div>
-</div>
 
-<!-- ============ TOAST WRAPPER ============ -->
-<div class="toast-wrap" id="toastWrap"></div>
+  <div class="toast-wrap" id="toastWrap"></div>
 
-<!-- ============ NAVBAR ============ -->
-<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-  <div class="container">
-    <a class="navbar-brand brand-logo" href="index.html">
-      <!-- <span class="brand-mark"><i class="bi bi-graph-up-arrow"></i></span>
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand brand-logo" href="index.html">
+        <!-- <span class="brand-mark"><i class="bi bi-graph-up-arrow"></i></span>
       SkillGap <span class="brand-gradient ms-1">Pro</span> -->
-          <img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:180px;height: auto;">
-    </a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <i class="bi bi-list fs-3"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
-        <li class="nav-item"><a class="nav-link" href="analyze.html">Analyze Skills</a></li>
-        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
-        <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
-      </ul>
-      <div class="d-flex align-items-center gap-2">
-        <button class="theme-toggle" id="themeToggle" title="Toggle theme"><i class="bi bi-moon-stars"></i></button>
-        <div id="authButtons" class="d-flex gap-2">
-          <button class="btn-ghost" onclick="openAuth('login')">Login</button>
-          <button class="btn-grad" onclick="openAuth('signup')">Sign Up</button>
-        </div>
-        <div id="userButtons" class="d-none align-items-center gap-2">
-          <span class="d-none d-md-inline text-muted-2 small">Hi, <strong id="userName">User</strong></span>
-          <button class="btn-ghost" onclick="logout()"><i class="bi bi-box-arrow-right"></i></button>
+        <img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:180px;height: auto;">
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <i class="bi bi-list fs-3"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="analyze.html">Analyze Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <button class="theme-toggle" id="themeToggle" title="Toggle theme"><i class="bi bi-moon-stars"></i></button>
+          <div id="authButtons" class="d-flex gap-2">
+            <button class="btn-ghost" onclick="openAuth('login')">Login</button>
+            <button class="btn-grad" onclick="openAuth('signup')">Sign Up</button>
+          </div>
+          <div id="userButtons" class="d-none align-items-center gap-2">
+            <span class="d-none d-md-inline text-muted-2 small">Hi, <strong id="userName">User</strong></span>
+            <button class="btn-ghost" onclick="logout()"><i class="bi bi-box-arrow-right"></i></button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- ============ PROFILE BANNER ============ -->
-<section class="page-hero">
-  <div class="shape s1"></div>
-  <div class="shape s2"></div>
-  <div class="container position-relative">
-    <div id="profileHeader" data-aos="fade-up">
-      <div class="profile-banner p-4 p-md-5">
-        <div class="row align-items-center g-4">
-          <div class="col-md-auto"><div class="profile-avatar" id="profileAvatar">?</div></div>
-          <div class="col-md">
-            <span class="badge" style="background:rgba(255,255,255,.25);color:#fff;"><i class="bi bi-patch-check-fill me-1"></i><span id="profileRole">Loading...</span></span>
-            <h1 class="mt-2 mb-1" style="font-size:clamp(1.6rem,3vw,2.4rem);"><span id="profileName">Guest</span></h1>
-            <p class="mb-0 opacity-75"><i class="bi bi-envelope me-1"></i><span id="profileEmail">Please login to view your profile</span></p>
-          </div>
-          <div class="col-md-auto">
-            <div class="d-flex gap-2 flex-wrap">
-              <a href="analyze.html" class="btn btn-light" style="border-radius:11px;font-weight:600;"><i class="bi bi-plus-lg me-1"></i>New Analysis</a>
-              <button class="btn" style="background:rgba(255,255,255,.2);color:#fff;border-radius:11px;font-weight:600;" onclick="editProfile()"><i class="bi bi-pencil me-1"></i>Edit Profile</button>
+  <section class="page-hero">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="container position-relative">
+      <div id="profileHeader" data-aos="fade-up">
+        <div class="profile-banner p-4 p-md-5">
+          <div class="row align-items-center g-4">
+            <div class="col-md-auto">
+              <div class="profile-avatar" id="profileAvatar">?</div>
+            </div>
+            <div class="col-md">
+              <span class="badge" style="background:rgba(255,255,255,.25);color:#fff;"><i
+                  class="bi bi-patch-check-fill me-1"></i><span id="profileRole">Loading...</span></span>
+              <h1 class="mt-2 mb-1" style="font-size:clamp(1.6rem,3vw,2.4rem);"><span id="profileName">Guest</span></h1>
+              <p class="mb-0 opacity-75"><i class="bi bi-envelope me-1"></i><span id="profileEmail">Please login to view
+                  your profile</span></p>
+            </div>
+            <div class="col-md-auto">
+              <div class="d-flex gap-2 flex-wrap">
+                <a href="analyze.html" class="btn btn-light" style="border-radius:11px;font-weight:600;"><i
+                    class="bi bi-plus-lg me-1"></i>New Analysis</a>
+                <button class="btn"
+                  style="background:rgba(255,255,255,.2);color:#fff;border-radius:11px;font-weight:600;"
+                  onclick="editProfile()"><i class="bi bi-pencil me-1"></i>Edit Profile</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ USER INFO CARD ============ -->
-<section class="section-sm">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-3" data-aos="fade-up">
-        <div class="counter-card">
-          <div class="feature-icon bg-grad-1 mx-auto" style="width:60px;height:60px;font-size:1.4rem;margin-bottom:12px;"><i class="bi bi-bar-chart-line"></i></div>
-          <div class="num"><span class="counter" data-target="0" id="statAnalyses">0</span></div>
-          <div class="lbl">Total Analyses</div>
+  <section class="section-sm">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="counter-card">
+            <div class="feature-icon bg-grad-1 mx-auto"
+              style="width:60px;height:60px;font-size:1.4rem;margin-bottom:12px;"><i class="bi bi-bar-chart-line"></i>
+            </div>
+            <div class="num"><span class="counter" data-target="0" id="statAnalyses">0</span></div>
+            <div class="lbl">Total Analyses</div>
+          </div>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-        <div class="counter-card">
-          <div class="feature-icon bg-grad-2 mx-auto" style="width:60px;height:60px;font-size:1.4rem;margin-bottom:12px;"><i class="bi bi-file-earmark-pdf"></i></div>
-          <div class="num"><span class="counter" data-target="0" id="statReports">0</span></div>
-          <div class="lbl">Reports Downloaded</div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="counter-card">
+            <div class="feature-icon bg-grad-2 mx-auto"
+              style="width:60px;height:60px;font-size:1.4rem;margin-bottom:12px;"><i class="bi bi-file-earmark-pdf"></i>
+            </div>
+            <div class="num"><span class="counter" data-target="0" id="statReports">0</span></div>
+            <div class="lbl">Reports Downloaded</div>
+          </div>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-        <div class="counter-card">
-          <div class="feature-icon bg-grad-3 mx-auto" style="width:60px;height:60px;font-size:1.4rem;margin-bottom:12px;"><i class="bi bi-trophy"></i></div>
-          <div class="num"><span class="counter" data-target="0" id="statBest">0</span><span>%</span></div>
-          <div class="lbl">Best Match Score</div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="counter-card">
+            <div class="feature-icon bg-grad-3 mx-auto"
+              style="width:60px;height:60px;font-size:1.4rem;margin-bottom:12px;"><i class="bi bi-trophy"></i></div>
+            <div class="num"><span class="counter" data-target="0" id="statBest">0</span><span>%</span></div>
+            <div class="lbl">Best Match Score</div>
+          </div>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-        <div class="counter-card">
-          <div class="feature-icon bg-grad-4 mx-auto" style="width:60px;height:60px;font-size:1.4rem;margin-bottom:12px;"><i class="bi bi-calendar-check"></i></div>
-          <div class="num"><span class="counter" data-target="0" id="statDays">0</span></div>
-          <div class="lbl">Days Since Joining</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ USER INFO EDIT CARD ============ -->
-<section class="section-sm" id="profileSection">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-lg-5" data-aos="fade-right">
-        <div class="glass-card h-100">
-          <h4 class="mb-3"><i class="bi bi-person-circle me-2"></i>Account Details</h4>
-          <div class="mb-3"><label class="form-label small fw-semibold">Full Name</label><input type="text" class="form-control" id="editName" readonly></div>
-          <div class="mb-3"><label class="form-label small fw-semibold">Email</label><input type="email" class="form-control" id="editEmail" readonly></div>
-          <div class="mb-3"><label class="form-label small fw-semibold">User Type</label><input type="text" class="form-control" id="editType" readonly></div>
-          <div class="mb-3"><label class="form-label small fw-semibold">Member Since</label><input type="text" class="form-control" id="editSince" readonly></div>
-          <button class="btn-grad w-100" onclick="downloadAllData()"><i class="bi bi-download me-2"></i>Download My Data</button>
-        </div>
-      </div>
-      <div class="col-lg-7" data-aos="fade-left">
-        <div class="glass-card h-100">
-          <h4 class="mb-3"><i class="bi bi-graph-up me-2"></i>Skill Snapshot</h4>
-          <p class="text-muted-2 small mb-4">Your most recent analysis across all roles. Keep pushing — consistency beats intensity.</p>
-          <div id="skillSnapshot">
-            <div class="text-center text-muted-2 py-4"><i class="bi bi-inbox fs-1"></i><div class="mt-2">No analyses yet. <a href="analyze.html">Run your first analysis</a> to see insights here.</div></div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="counter-card">
+            <div class="feature-icon bg-grad-4 mx-auto"
+              style="width:60px;height:60px;font-size:1.4rem;margin-bottom:12px;"><i class="bi bi-calendar-check"></i>
+            </div>
+            <div class="num"><span class="counter" data-target="0" id="statDays">0</span></div>
+            <div class="lbl">Days Since Joining</div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ SKILL INSIGHTS CARDS ============ -->
-<section class="section-sm" id="skillInsights">
-  <div class="container">
-    <div class="row g-4" data-aos="fade-up">
-      <!-- Top Strength -->
-      <div class="col-md-4">
-        <div class="glass-card text-center h-100">
-          <div class="feature-icon bg-grad-2 mx-auto mb-3" style="width:56px;height:56px;font-size:1.4rem;">
-            <i class="bi bi-lightning-fill"></i>
+  <section class="section-sm" id="profileSection">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5" data-aos="fade-right">
+          <div class="glass-card h-100">
+            <h4 class="mb-3"><i class="bi bi-person-circle me-2"></i>Account Details</h4>
+            <div class="mb-3"><label class="form-label small fw-semibold">Full Name</label><input type="text"
+                class="form-control" id="editName" readonly></div>
+            <div class="mb-3"><label class="form-label small fw-semibold">Email</label><input type="email"
+                class="form-control" id="editEmail" readonly></div>
+            <div class="mb-3"><label class="form-label small fw-semibold">User Type</label><input type="text"
+                class="form-control" id="editType" readonly></div>
+            <div class="mb-3"><label class="form-label small fw-semibold">Member Since</label><input type="text"
+                class="form-control" id="editSince" readonly></div>
+            <button class="btn-grad w-100" onclick="downloadAllData()"><i class="bi bi-download me-2"></i>Download My
+              Data</button>
           </div>
-          <h5 class="mb-3">Top Strength</h5>
-          <span class="skill-chip chip-strong" style="font-size:1rem;padding:8px 20px;">
-            <i class="bi bi-check-circle-fill me-1"></i>React
-          </span>
-          <p class="text-muted-2 small mt-3 mb-0">Your strongest skill based on recent analysis</p>
         </div>
-      </div>
-      <!-- Priority Gap -->
-      <div class="col-md-4">
-        <div class="glass-card text-center h-100">
-          <div class="feature-icon bg-grad-3 mx-auto mb-3" style="width:56px;height:56px;font-size:1.4rem;">
-            <i class="bi bi-exclamation-triangle-fill"></i>
-          </div>
-          <h5 class="mb-3">Priority Gap</h5>
-          <span class="skill-chip chip-miss" style="font-size:1rem;padding:8px 20px;">
-            <i class="bi bi-plus-circle-fill me-1"></i>HTML
-          </span>
-          <p class="text-muted-2 small mt-3 mb-0">Focus on this skill to improve your match score</p>
-        </div>
-      </div>
-      <!-- Next Step -->
-      <div class="col-md-4">
-        <div class="glass-card text-center h-100">
-          <div class="feature-icon bg-grad-4 mx-auto mb-3" style="width:56px;height:56px;font-size:1.4rem;">
-            <i class="bi bi-compass-fill"></i>
-          </div>
-          <h5 class="mb-3">Next Step</h5>
-          <div class="skill-chip chip-improve" style="font-size:.9rem;padding:10px 16px;display:inline-block;text-align:left;max-width:100%;">
-            <i class="bi bi-arrow-right-circle-fill me-1"></i>Build 3 real-world React projects
-          </div>
-          <p class="text-muted-2 small mt-3 mb-0">Recommended action to level up your profile</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ANALYSIS HISTORY TIMELINE ============ -->
-<section class="section" style="background:var(--brand-grad-soft);">
-  <div class="container">
-    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2" data-aos="fade-up">
-      <div>
-        <span class="badge-soft mb-2"><i class="bi bi-clock-history"></i> Journey So Far</span>
-        <h3 class="mb-0">Analysis History</h3>
-      </div>
-      <button class="btn-ghost" onclick="clearHistory()"><i class="bi bi-trash me-1"></i> Clear All</button>
-    </div>
-    <div class="timeline" id="historyTimeline"></div>
-  </div>
-</section>
-
-<!-- ============ DOWNLOADED REPORTS ============ -->
-<section class="section">
-  <div class="container">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <span class="badge-soft mb-3"><i class="bi bi-file-earmark-pdf"></i> Report Library</span>
-      <h2 class="section-title">Your <span class="brand-gradient">Downloaded Reports</span></h2>
-      <p class="section-sub">Every analysis you've run is saved here. Re-download, revisit, or delete anytime.</p>
-    </div>
-    <div class="row g-4" id="reportsGrid"></div>
-  </div>
-</section>
-
-<!-- ============ CAREER PROGRESS TRACKER ============ -->
-<section class="section" style="background:var(--brand-grad-soft);">
-  <div class="container">
-    <div class="text-center mb-5" data-aos="fade-up">
-      <span class="badge-soft mb-3"><i class="bi bi-graph-up-arrow"></i> Growth Insights</span>
-      <h2 class="section-title">Your <span class="brand-gradient">Career Progress</span></h2>
-      <p class="section-sub">See how your skill readiness has evolved over time. Every analysis is a milestone on your journey.</p>
-    </div>
-    <div class="row g-4">
-      <div class="col-lg-7" data-aos="fade-right">
-        <div class="glass-card">
-          <h5 class="mb-3"><i class="bi bi-activity me-2"></i>Match Score Over Time</h5>
-          <div id="progressChart" style="height:280px;display:flex;align-items:flex-end;gap:8px;padding:20px 10px;border-bottom:2px solid var(--border);position:relative;">
-            <div class="text-center text-muted-2 w-100 py-5"><i class="bi bi-graph-up fs-1"></i><div class="mt-2">Your progress chart will appear here after 2+ analyses.</div></div>
-          </div>
-          <div class="d-flex justify-content-between mt-2 small text-muted-2"><span>Oldest</span><span>Most Recent</span></div>
-        </div>
-      </div>
-      <div class="col-lg-5" data-aos="fade-left">
-        <div class="glass-card">
-          <h5 class="mb-3"><i class="bi bi-trophy me-2"></i>Achievements</h5>
-          <div id="achievementsList">
-            <div class="text-center text-muted-2 py-4"><i class="bi bi-award fs-1"></i><div class="mt-2">Complete your first analysis to unlock achievements.</div></div>
+        <div class="col-lg-7" data-aos="fade-left">
+          <div class="glass-card h-100">
+            <h4 class="mb-3"><i class="bi bi-graph-up me-2"></i>Skill Snapshot</h4>
+            <p class="text-muted-2 small mb-4">Your most recent analysis across all roles. Keep pushing — consistency
+              beats intensity.</p>
+            <div id="skillSnapshot">
+              <div class="text-center text-muted-2 py-4"><i class="bi bi-inbox fs-1"></i>
+                <div class="mt-2">No analyses yet. <a href="analyze.html">Run your first analysis</a> to see insights
+                  here.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ CTA ============ -->
-<section class="section-sm">
-  <div class="container">
-    <div class="newsletter" data-aos="zoom-in">
-      <h2 class="mb-2" style="position:relative;z-index:2;">Keep Growing. Keep Analyzing.</h2>
-      <p class="mb-4 opacity-75" style="position:relative;z-index:2;">Re-run your analysis every 4 weeks to track your progress toward job readiness.</p>
-      <a href="analyze.html" class="btn btn-light btn-lg" style="border-radius:11px;font-weight:600;position:relative;z-index:2;">Run New Analysis <i class="bi bi-arrow-right ms-2"></i></a>
+  <section class="section-sm" id="skillInsights">
+    <div class="container">
+      <div class="row g-4" data-aos="fade-up">
+        <!-- Top Strength -->
+        <div class="col-md-4">
+          <div class="glass-card text-center h-100">
+            <div class="feature-icon bg-grad-2 mx-auto mb-3" style="width:56px;height:56px;font-size:1.4rem;">
+              <i class="bi bi-lightning-fill"></i>
+            </div>
+            <h5 class="mb-3">Top Strength</h5>
+            <span class="skill-chip chip-strong" style="font-size:1rem;padding:8px 20px;">
+              <i class="bi bi-check-circle-fill me-1"></i>React
+            </span>
+            <p class="text-muted-2 small mt-3 mb-0">Your strongest skill based on recent analysis</p>
+          </div>
+        </div>
+        <!-- Priority Gap -->
+        <div class="col-md-4">
+          <div class="glass-card text-center h-100">
+            <div class="feature-icon bg-grad-3 mx-auto mb-3" style="width:56px;height:56px;font-size:1.4rem;">
+              <i class="bi bi-exclamation-triangle-fill"></i>
+            </div>
+            <h5 class="mb-3">Priority Gap</h5>
+            <span class="skill-chip chip-miss" style="font-size:1rem;padding:8px 20px;">
+              <i class="bi bi-plus-circle-fill me-1"></i>HTML
+            </span>
+            <p class="text-muted-2 small mt-3 mb-0">Focus on this skill to improve your match score</p>
+          </div>
+        </div>
+        <!-- Next Step -->
+        <div class="col-md-4">
+          <div class="glass-card text-center h-100">
+            <div class="feature-icon bg-grad-4 mx-auto mb-3" style="width:56px;height:56px;font-size:1.4rem;">
+              <i class="bi bi-compass-fill"></i>
+            </div>
+            <h5 class="mb-3">Next Step</h5>
+            <div class="skill-chip chip-improve"
+              style="font-size:.9rem;padding:10px 16px;display:inline-block;text-align:left;max-width:100%;">
+              <i class="bi bi-arrow-right-circle-fill me-1"></i>Build 3 real-world React projects
+            </div>
+            <p class="text-muted-2 small mt-3 mb-0">Recommended action to level up your profile</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
- <footer class="footer">
+  <section class="section" style="background:var(--brand-grad-soft);">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2" data-aos="fade-up">
+        <div>
+          <span class="badge-soft mb-2"><i class="bi bi-clock-history"></i> Journey So Far</span>
+          <h3 class="mb-0">Analysis History</h3>
+        </div>
+        <button class="btn-ghost" onclick="clearHistory()"><i class="bi bi-trash me-1"></i> Clear All</button>
+      </div>
+      <div class="timeline" id="historyTimeline"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge-soft mb-3"><i class="bi bi-file-earmark-pdf"></i> Report Library</span>
+        <h2 class="section-title">Your <span class="brand-gradient">Downloaded Reports</span></h2>
+        <p class="section-sub">Every analysis you've run is saved here. Re-download, revisit, or delete anytime.</p>
+      </div>
+      <div class="row g-4" id="reportsGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--brand-grad-soft);">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge-soft mb-3"><i class="bi bi-graph-up-arrow"></i> Growth Insights</span>
+        <h2 class="section-title">Your <span class="brand-gradient">Career Progress</span></h2>
+        <p class="section-sub">See how your skill readiness has evolved over time. Every analysis is a milestone on your
+          journey.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-7" data-aos="fade-right">
+          <div class="glass-card">
+            <h5 class="mb-3"><i class="bi bi-activity me-2"></i>Match Score Over Time</h5>
+            <div id="progressChart"
+              style="height:280px;display:flex;align-items:flex-end;gap:8px;padding:20px 10px;border-bottom:2px solid var(--border);position:relative;">
+              <div class="text-center text-muted-2 w-100 py-5"><i class="bi bi-graph-up fs-1"></i>
+                <div class="mt-2">Your progress chart will appear here after 2+ analyses.</div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-2 small text-muted-2"><span>Oldest</span><span>Most
+                Recent</span></div>
+          </div>
+        </div>
+        <div class="col-lg-5" data-aos="fade-left">
+          <div class="glass-card">
+            <h5 class="mb-3"><i class="bi bi-trophy me-2"></i>Achievements</h5>
+            <div id="achievementsList">
+              <div class="text-center text-muted-2 py-4"><i class="bi bi-award fs-1"></i>
+                <div class="mt-2">Complete your first analysis to unlock achievements.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="newsletter" data-aos="zoom-in">
+        <h2 class="mb-2" style="position:relative;z-index:2;">Keep Growing. Keep Analyzing.</h2>
+        <p class="mb-4 opacity-75" style="position:relative;z-index:2;">Re-run your analysis every 4 weeks to track your
+          progress toward job readiness.</p>
+        <a href="analyze.html" class="btn btn-light btn-lg"
+          style="border-radius:11px;font-weight:600;position:relative;z-index:2;">Run New Analysis <i
+            class="bi bi-arrow-right ms-2"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-4">
           <div class="d-flex align-items-center gap-2 mb-3">
-            <h4 class="mb-0 text-white"><img src="./assets/logo/SkillGap_Logo.png" alt="Logo" style="width:180px;height: auto;"></h4>
+            <h4 class="mb-0 text-white"><img src="./assets/logo/SkillGap_Logo.png" alt="Logo"
+                style="width:180px;height: auto;"></h4>
           </div>
           <p class="small">An AI-inspired skill gap analysis platform built to help students and job seekers become
             truly job-ready by identifying what to learn next.</p>
@@ -303,49 +331,83 @@
     </div>
   </footer>
 
-<button id="backTop" title="Back to top"><i class="bi bi-arrow-up"></i></button>
-<div class="modal fade" id="authModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content p-4"><div class="text-center mb-3"><span class="brand-mark mx-auto mb-2"><i class="bi bi-graph-up-arrow"></i></span><h4 class="mb-0">Welcome to SkillGap <span class="brand-gradient">Pro</span></h4><p class="text-muted-2 small mb-0">Login to access your profile</p></div><div class="auth-tabs"><button id="tabLogin" class="active" onclick="switchAuth('login')">Login</button><button id="tabSignup" onclick="switchAuth('signup')">Sign Up</button></div><form id="loginForm" class="d-block"><div class="mb-3"><label class="form-label small fw-semibold">Email</label><input type="email" class="form-control" id="loginEmail" required></div><div class="mb-3"><label class="form-label small fw-semibold">Password</label><input type="password" class="form-control" id="loginPass" required></div><button type="submit" class="btn-grad w-100 py-2 mt-2">Login</button></form><form id="signupForm" class="d-none"><div class="mb-3"><label class="form-label small fw-semibold">Full Name</label><input type="text" class="form-control" id="suName" required></div><div class="mb-3"><label class="form-label small fw-semibold">Email</label><input type="email" class="form-control" id="suEmail" required></div><div class="row g-2"><div class="col-6 mb-3"><label class="form-label small fw-semibold">Password</label><input type="password" class="form-control" id="suPass" required></div><div class="col-6 mb-3"><label class="form-label small fw-semibold">Confirm</label><input type="password" class="form-control" id="suPass2" required></div></div><div class="mb-3"><label class="form-label small fw-semibold">I am a...</label><select id="suRole" class="form-select" required><option value="">-- Select --</option><option>Student</option><option>Job Seeker</option><option>Fresher</option><option>Professional</option></select></div><button type="submit" class="btn-grad w-100 py-2 mt-2">Create Account</button></form></div></div></div>
+  <button id="backTop" title="Back to top"><i class="bi bi-arrow-up"></i></button>
+  <div class="modal fade" id="authModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4">
+        <div class="text-center mb-3"><span class="brand-mark mx-auto mb-2"><i class="bi bi-graph-up-arrow"></i></span>
+          <h4 class="mb-0">Welcome to SkillGap <span class="brand-gradient">Pro</span></h4>
+          <p class="text-muted-2 small mb-0">Login to access your profile</p>
+        </div>
+        <div class="auth-tabs"><button id="tabLogin" class="active" onclick="switchAuth('login')">Login</button><button
+            id="tabSignup" onclick="switchAuth('signup')">Sign Up</button></div>
+        <form id="loginForm" class="d-block">
+          <div class="mb-3"><label class="form-label small fw-semibold">Email</label><input type="email"
+              class="form-control" id="loginEmail" required></div>
+          <div class="mb-3"><label class="form-label small fw-semibold">Password</label><input type="password"
+              class="form-control" id="loginPass" required></div><button type="submit"
+            class="btn-grad w-100 py-2 mt-2">Login</button>
+        </form>
+        <form id="signupForm" class="d-none">
+          <div class="mb-3"><label class="form-label small fw-semibold">Full Name</label><input type="text"
+              class="form-control" id="suName" required></div>
+          <div class="mb-3"><label class="form-label small fw-semibold">Email</label><input type="email"
+              class="form-control" id="suEmail" required></div>
+          <div class="row g-2">
+            <div class="col-6 mb-3"><label class="form-label small fw-semibold">Password</label><input type="password"
+                class="form-control" id="suPass" required></div>
+            <div class="col-6 mb-3"><label class="form-label small fw-semibold">Confirm</label><input type="password"
+                class="form-control" id="suPass2" required></div>
+          </div>
+          <div class="mb-3"><label class="form-label small fw-semibold">I am a...</label><select id="suRole"
+              class="form-select" required>
+              <option value="">-- Select --</option>
+              <option>Student</option>
+              <option>Job Seeker</option>
+              <option>Fresher</option>
+              <option>Professional</option>
+            </select></div><button type="submit" class="btn-grad w-100 py-2 mt-2">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="js/app.js"></script>
-<script>
-/* ===== PROFILE PAGE ===== */
-$(document).ready(function(){
-  const u = currentUser();
-  if(!u){
-    setTimeout(()=>{ openAuth('login'); showToast('Please login to view your profile','warning'); }, 1200);
-    return;
-  }
-  // Populate profile
-  const users = getUsers();
-  const fullUser = users.find(x=>x.email===u.email) || u;
-  const initials = u.name.split(' ').map(n=>n[0]).join('').toUpperCase().slice(0,2);
-  $('#profileAvatar').text(initials);
-  $('#profileName').text(u.name);
-  $('#profileEmail').text(u.email);
-  $('#profileRole').text(u.role || 'Member');
-  $('#editName').val(u.name);
-  $('#editEmail').val(u.email);
-  $('#editType').val(u.role || 'Not specified');
-  const created = fullUser.createdAt ? new Date(fullUser.createdAt).toLocaleDateString() : 'Today';
-  $('#editSince').val(created);
-  const days = fullUser.createdAt ? Math.floor((Date.now() - fullUser.createdAt) / (1000*60*60*24)) : 0;
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    $(document).ready(function () {
+      const u = currentUser();
+      if (!u) {
+        setTimeout(() => { openAuth('login'); showToast('Please login to view your profile', 'warning'); }, 1200);
+        return;
+      }
+      const users = getUsers();
+      const fullUser = users.find(x => x.email === u.email) || u;
+      const initials = u.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+      $('#profileAvatar').text(initials);
+      $('#profileName').text(u.name);
+      $('#profileEmail').text(u.email);
+      $('#profileRole').text(u.role || 'Member');
+      $('#editName').val(u.name);
+      $('#editEmail').val(u.email);
+      $('#editType').val(u.role || 'Not specified');
+      const created = fullUser.createdAt ? new Date(fullUser.createdAt).toLocaleDateString() : 'Today';
+      $('#editSince').val(created);
+      const days = fullUser.createdAt ? Math.floor((Date.now() - fullUser.createdAt) / (1000 * 60 * 60 * 24)) : 0;
 
-  // Reports
-  const reports = getReports();
-  $('#statAnalyses').data('target', reports.length).text(reports.length);
-  $('#statReports').data('target', reports.length).text(reports.length);
-  const best = reports.length ? Math.max(...reports.map(r=>r.score)) : 0;
-  $('#statBest').data('target', best).text(best);
-  $('#statDays').data('target', days).text(days);
-  runCounters();
+      const reports = getReports();
+      $('#statAnalyses').data('target', reports.length).text(reports.length);
+      $('#statReports').data('target', reports.length).text(reports.length);
+      const best = reports.length ? Math.max(...reports.map(r => r.score)) : 0;
+      $('#statBest').data('target', best).text(best);
+      $('#statDays').data('target', days).text(days);
+      runCounters();
 
-  // Skill snapshot
-  if(reports.length){
-    const latest = reports[0];
-    $('#skillSnapshot').html(`
+      if (reports.length) {
+        const latest = reports[0];
+        $('#skillSnapshot').html(`
       <div class="row g-3">
         <div class="col-md-4 text-center">
           <div class="donut" style="--p:${latest.score};width:130px;height:130px;"><div><div class="lbl">Latest Score</div><div class="val" style="font-size:1.4rem;">${latest.score}%</div></div></div>
@@ -353,34 +415,32 @@ $(document).ready(function(){
           <small class="text-muted-2">${latest.strong.length}/${ROLES[latest.role].length} matched</small>
         </div>
       </div>`);
-  }
+      }
 
-  // Timeline
-  if(!reports.length){
-    $('#historyTimeline').html(`<div class="text-center text-muted-2 py-5 glass-card"><i class="bi bi-inbox fs-1"></i><div class="mt-2">No analyses yet. <a href="analyze.html">Run your first one</a>.</div></div>`);
-  } else {
-    const tl = reports.map((r,i)=>`
-      <div class="t-step ${i%2===0?'left':'right'}" data-aos="${i%2===0?'fade-right':'fade-left'}">
-        <div class="t-icon">${r.score>=75?'🏆':r.score>=50?'⭐':'📈'}</div>
+      if (!reports.length) {
+        $('#historyTimeline').html(`<div class="text-center text-muted-2 py-5 glass-card"><i class="bi bi-inbox fs-1"></i><div class="mt-2">No analyses yet. <a href="analyze.html">Run your first one</a>.</div></div>`);
+      } else {
+        const tl = reports.map((r, i) => `
+      <div class="t-step ${i % 2 === 0 ? 'left' : 'right'}" data-aos="${i % 2 === 0 ? 'fade-right' : 'fade-left'}">
+        <div class="t-icon">${r.score >= 75 ? '🏆' : r.score >= 50 ? '⭐' : '📈'}</div>
         <div class="t-body">
           <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
             <h5 class="mb-0">${r.role}</h5>
             <span class="score" style="background:var(--brand-grad);color:#fff;padding:4px 12px;border-radius:8px;font-weight:700;">${r.score}% Match</span>
           </div>
           <div class="small text-muted-2 mb-2">${r.date} · ${r.strong.length} strong · ${r.missing.length} missing</div>
-          <div class="mb-2"><strong>Strong:</strong> ${r.strong.slice(0,5).map(s=>`<span class="skill-chip chip-strong" style="font-size:.75rem;padding:3px 8px;">${escapeHtml(s)}</span>`).join('')}</div>
-          <div class="mb-2"><strong>Missing:</strong> ${r.missing.slice(0,5).map(s=>`<span class="skill-chip chip-miss" style="font-size:.75rem;padding:3px 8px;">${escapeHtml(s)}</span>`).join('')}</div>
+          <div class="mb-2"><strong>Strong:</strong> ${r.strong.slice(0, 5).map(s => `<span class="skill-chip chip-strong" style="font-size:.75rem;padding:3px 8px;">${escapeHtml(s)}</span>`).join('')}</div>
+          <div class="mb-2"><strong>Missing:</strong> ${r.missing.slice(0, 5).map(s => `<span class="skill-chip chip-miss" style="font-size:.75rem;padding:3px 8px;">${escapeHtml(s)}</span>`).join('')}</div>
           <button class="btn-ghost btn-sm" onclick="location.href='analyze.html'"><i class="bi bi-arrow-repeat me-1"></i>Re-analyze</button>
         </div>
       </div>`).join('');
-    $('#historyTimeline').html(tl);
-  }
+        $('#historyTimeline').html(tl);
+      }
 
-  // Reports grid
-  if(!reports.length){
-    $('#reportsGrid').html(`<div class="text-center text-muted-2 py-5 glass-card col-12"><i class="bi bi-file-earmark-x fs-1"></i><div class="mt-2">No reports yet.</div></div>`);
-  } else {
-    const grid = reports.map(r=>`
+      if (!reports.length) {
+        $('#reportsGrid').html(`<div class="text-center text-muted-2 py-5 glass-card col-12"><i class="bi bi-file-earmark-x fs-1"></i><div class="mt-2">No reports yet.</div></div>`);
+      } else {
+        const grid = reports.map(r => `
       <div class="col-md-6 col-lg-4" data-aos="zoom-in">
         <div class="glass-card">
           <div class="d-flex justify-content-between align-items-start mb-2">
@@ -396,54 +456,53 @@ $(document).ready(function(){
           </div>
         </div>
       </div>`).join('');
-    $('#reportsGrid').html(grid);
-  }
+        $('#reportsGrid').html(grid);
+      }
 
-  // Progress chart (bar chart)
-  if(reports.length >= 2){
-    const reversed = reports.slice().reverse();
-    const maxScore = 100;
-    const chartHtml = reversed.map((r,i)=>`
+      if (reports.length >= 2) {
+        const reversed = reports.slice().reverse();
+        const maxScore = 100;
+        const chartHtml = reversed.map((r, i) => `
       <div class="flex-grow-1 d-flex flex-column align-items-center" style="height:100%;">
         <div class="small fw-bold mb-1">${r.score}%</div>
         <div style="flex-grow:1;width:100%;display:flex;align-items:flex-end;">
           <div style="width:100%;background:var(--brand-grad);border-radius:6px 6px 0 0;height:${r.score}%;min-height:8px;"></div>
         </div>
-        <div class="small text-muted-2 mt-2" style="font-size:.7rem;">#${i+1}</div>
+        <div class="small text-muted-2 mt-2" style="font-size:.7rem;">#${i + 1}</div>
       </div>`).join('');
-    $('#progressChart').html(chartHtml);
-  }
+        $('#progressChart').html(chartHtml);
+      }
 
-  // Achievements
-  const achievements = [];
-  if(reports.length >= 1) achievements.push({ic:'bi-rocket-takeoff',col:'bg-grad-1',title:'First Step',desc:'Completed your first analysis'});
-  if(reports.length >= 3) achievements.push({ic:'bi-fire',col:'bg-grad-2',title:'On a Roll',desc:'Completed 3 analyses'});
-  if(reports.length >= 5) achievements.push({ic:'bi-star',col:'bg-grad-3',title:'Dedicated Learner',desc:'Completed 5+ analyses'});
-  if(best >= 75) achievements.push({ic:'bi-trophy',col:'bg-grad-4',title:'Job Ready',desc:'Reached 75%+ match score'});
-  if(best === 100) achievements.push({ic:'bi-award',col:'bg-grad-6',title:'Perfect Match',desc:'Hit 100% on a role'});
-  if(!achievements.length) achievements.push({ic:'bi-lock',col:'bg-grad-5',title:'Locked',desc:'Complete your first analysis to unlock achievements.'});
-  $('#achievementsList').html(achievements.map(a=>`
+      const achievements = [];
+      if (reports.length >= 1) achievements.push({ ic: 'bi-rocket-takeoff', col: 'bg-grad-1', title: 'First Step', desc: 'Completed your first analysis' });
+      if (reports.length >= 3) achievements.push({ ic: 'bi-fire', col: 'bg-grad-2', title: 'On a Roll', desc: 'Completed 3 analyses' });
+      if (reports.length >= 5) achievements.push({ ic: 'bi-star', col: 'bg-grad-3', title: 'Dedicated Learner', desc: 'Completed 5+ analyses' });
+      if (best >= 75) achievements.push({ ic: 'bi-trophy', col: 'bg-grad-4', title: 'Job Ready', desc: 'Reached 75%+ match score' });
+      if (best === 100) achievements.push({ ic: 'bi-award', col: 'bg-grad-6', title: 'Perfect Match', desc: 'Hit 100% on a role' });
+      if (!achievements.length) achievements.push({ ic: 'bi-lock', col: 'bg-grad-5', title: 'Locked', desc: 'Complete your first analysis to unlock achievements.' });
+      $('#achievementsList').html(achievements.map(a => `
     <div class="d-flex align-items-center gap-3 p-3 mb-2" style="background:var(--brand-grad-soft);border-radius:12px;">
       <div class="feature-icon ${a.col}" style="width:46px;height:46px;font-size:1.1rem;margin:0;"><i class="bi ${a.ic}"></i></div>
       <div><strong>${a.title}</strong><div class="small text-muted-2">${a.desc}</div></div>
     </div>`).join(''));
-});
+    });
 
-function getReports(){ const u = currentUser(); if(!u) return []; return LS.get('sgp_reports_'+u.email, []); }
-function deleteReport(id){ const u = currentUser(); if(!u) return; if(!confirm('Delete this report?')) return; LS.set('sgp_reports_'+u.email, getReports().filter(r=>r.id!==id)); location.reload(); }
-function clearHistory(){ const u = currentUser(); if(!u) return; if(!confirm('Delete all history?')) return; LS.del('sgp_reports_'+u.email); location.reload(); }
-function editProfile(){ showToast('Profile editing coming soon','info'); }
-function downloadAllData(){
-  const u = currentUser();
-  if(!u) return;
-  const data = { user: u, reports: getReports(), exportedAt: new Date().toISOString() };
-  const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = `skillgap_pro_data_${Date.now()}.json`;
-  a.click(); URL.revokeObjectURL(url);
-  showToast('Data downloaded!','success');
-}
-</script>
+    function getReports() { const u = currentUser(); if (!u) return []; return LS.get('sgp_reports_' + u.email, []); }
+    function deleteReport(id) { const u = currentUser(); if (!u) return; if (!confirm('Delete this report?')) return; LS.set('sgp_reports_' + u.email, getReports().filter(r => r.id !== id)); location.reload(); }
+    function clearHistory() { const u = currentUser(); if (!u) return; if (!confirm('Delete all history?')) return; LS.del('sgp_reports_' + u.email); location.reload(); }
+    function editProfile() { showToast('Profile editing coming soon', 'info'); }
+    function downloadAllData() {
+      const u = currentUser();
+      if (!u) return;
+      const data = { user: u, reports: getReports(), exportedAt: new Date().toISOString() };
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = `skillgap_pro_data_${Date.now()}.json`;
+      a.click(); URL.revokeObjectURL(url);
+      showToast('Data downloaded!', 'success');
+    }
+  </script>
 </body>
+
 </html>

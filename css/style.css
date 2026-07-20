@@ -1,6 +1,3 @@
-/* =======================================================
-   SkillGap Pro — Shared Design System
-   ======================================================= */
 :root {
   --brand-1: #5b3df5;
   --brand-2: #7c4dff;
@@ -314,7 +311,7 @@ h5 {
   height: 100%;
 }
 .glass-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
 }
 .feature-icon {
@@ -969,7 +966,7 @@ h5 {
 }
 .skill-dropdown-header {
   padding: 8px 14px;
-  font-size: 0.72rem;
+  font-size: 0.70rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
